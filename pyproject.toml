@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "kilombo"
+version = "0.1.0"
+description = ""
+authors = ["Marta Arcones Rodríguez <marta.arconesrodriguez@zooplus.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "2.31.0"
+untangle = "1.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.git
+    | \.idea
+    | build
+    | dist
+  )/
+)
+'''
