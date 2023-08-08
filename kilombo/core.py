@@ -1,7 +1,9 @@
-import requests, untangle
+import requests, xmltodict
 
-response = requests.get("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=multiple%20sclerosis%20AND%20rna%20seq")
+response = requests.get(
+    "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=multiple%20sclerosis%20AND%20rna%20seq"
+)
 
-obj = untangle.parse(response.content)
+dict_data = xmltodict.parse(response.text)
 
-print(obj)
+print(dict_data)
