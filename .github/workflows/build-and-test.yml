@@ -8,6 +8,5 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: ls -lrta
-      - run: cd kilombo
       - run: poetry install
       - run: poetry run python kilombo/core.py
