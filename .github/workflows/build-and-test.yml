@@ -5,5 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: curl -sSL https://install.python-poetry.org | python3 -
+      - name: Check out repository code
+        uses: actions/checkout@v3
       - run: poetry install
-      - run:  poetry run python kilombo/core.py
+      - run: poetry run python kilombo/core.py
