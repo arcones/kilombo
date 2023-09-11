@@ -2,14 +2,13 @@
 name = "kilombo"
 version = "0.1.0"
 description = ""
-authors = ["Marta Arcones Rodríguez <marta.arconesrodriguez@zooplus.com>"]
+authors = ["Marta Arcones Rodríguez <marta.arcones@alumnos.upm.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-requests = "2.31.0"
-untangle = "1.2.1"
-
+python = "^3.10.12"
+requests = "^2.31.0"
+xmltodict = "^0.13.0"
 
 [build-system]
 requires = ["poetry-core"]
