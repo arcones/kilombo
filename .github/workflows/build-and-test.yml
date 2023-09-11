@@ -7,6 +7,6 @@ jobs:
       - run: curl -sSL https://install.python-poetry.org | python3 -
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: ls -lrta
+      - run: poetry env info
       - run: poetry install
       - run: poetry run python kilombo/core.py
