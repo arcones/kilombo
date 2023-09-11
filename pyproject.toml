@@ -2,7 +2,7 @@
 name = "kilombo"
 version = "0.1.0"
 description = ""
-authors = ["Marta Arcones Rodríguez <marta.arconesrodriguez@zooplus.com>"]
+authors = ["Marta Arcones Rodríguez <marta.arcones@alumnos.upm.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
