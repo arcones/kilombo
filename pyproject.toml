@@ -9,13 +9,15 @@ readme = "README.md"
 python = "^3.10.12"
 requests = "^2.31.0"
 xmltodict = "^0.13.0"
+fastapi = "^0.103.1"
+uvicorn = "^0.23.2"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
-line-length = 120
+line-length = 180
 target-version = ['py310']
 include = '\.pyi?$'
 exclude = '''

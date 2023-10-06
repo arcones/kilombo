@@ -1,4 +1,4 @@
-name: Build and test
+name: Build
 on: [push]
 jobs:
   CI-CD:
@@ -9,4 +9,3 @@ jobs:
         uses: actions/checkout@v3
       - run: poetry env info
       - run: poetry install
-      - run: poetry run python kilombo/core.py
