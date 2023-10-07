@@ -9,4 +9,4 @@ jobs:
         uses: actions/checkout@v3
       - run: poetry env use 3.10.12 && poetry env info
       - run: poetry install
-      - run: cd tests && pytest
+      - run: cd tests && poetry run pytest
