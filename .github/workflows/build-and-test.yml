@@ -7,6 +7,6 @@ jobs:
       - run: curl -sSL https://install.python-poetry.org | python3 -
       - name: Check out repository code
         uses: actions/checkout@v3
-      - run: poetry env info && poetry env use 3.10.12
+      - run: poetry env use 3.10.12 && poetry env info
       - run: poetry install
-      - run: cd tests && python -m pytest
+      - run: cd tests && pytest
