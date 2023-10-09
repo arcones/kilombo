@@ -1,0 +1,1756 @@
+{
+  "200207275": {
+    "eSummaryResult": {
+      "DocSum": {
+        "Id": "200207275",
+        "Item": [
+          {
+            "@Name": "Accession",
+            "@Type": "String",
+            "#text": "GSE207275"
+          },
+          {
+            "@Name": "GDS",
+            "@Type": "String"
+          },
+          {
+            "@Name": "title",
+            "@Type": "String",
+            "#text": "JAG1-NOTCH4 mechanosensing drives atherosclerosis [single-cell RNA-seq]"
+          },
+          {
+            "@Name": "summary",
+            "@Type": "String",
+            "#text": "Endothelial cell (EC) sensing of fluid shear stress regulates atherosclerosis, a disease of arteries that causes heart attack and stroke. Atherosclerosis preferentially develops at regions of arteries exposed to low oscillatory shear stress (LOSS), whereas high shear regions are protected. We show using inducible EC-specific genetic deletion in hyperlipidaemic mice that the Notch ligands JAG1 and DLL4 have opposing roles in atherosclerosis. While endothelial Jag1 promoted atherosclerosis at sites of LOSS, endothelial Dll4 was atheroprotective. Analysis of porcine and murine arteries and cultured human coronary artery EC exposed to experimental flow revealed that JAG1 and its receptor NOTCH4 are strongly upregulated by LOSS. Functional studies in cultured cells and in mice with EC-specific deletion of Jag1 show that JAG1-NOTCH4 signalling drives vascular dysfunction by repressing endothelial repair. These data demonstrate a fundamental role for JAG1-NOTCH4 in sensing LOSS during disease, and suggest therapeutic targeting of this pathway to treat atherosclerosis."
+          },
+          {
+            "@Name": "GPL",
+            "@Type": "String",
+            "#text": "19057"
+          },
+          {
+            "@Name": "GSE",
+            "@Type": "String",
+            "#text": "207275"
+          },
+          {
+            "@Name": "taxon",
+            "@Type": "String",
+            "#text": "Mus musculus"
+          },
+          {
+            "@Name": "entryType",
+            "@Type": "String",
+            "#text": "GSE"
+          },
+          {
+            "@Name": "gdsType",
+            "@Type": "String",
+            "#text": "Expression profiling by high throughput sequencing"
+          },
+          {
+            "@Name": "ptechType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "valType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SSInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "subsetInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PDAT",
+            "@Type": "String",
+            "#text": "2022/09/06"
+          },
+          {
+            "@Name": "suppFile",
+            "@Type": "String",
+            "#text": "TXT"
+          },
+          {
+            "@Name": "Samples",
+            "@Type": "List",
+            "Item": [
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM6283572"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "SHE-BT-s003-1"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM6283573"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "SHE-BT-s004-1"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM6283570"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "SHE-BT-s001-1"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM6283571"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "SHE-BT-s002-1"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@Name": "Relations",
+            "@Type": "List"
+          },
+          {
+            "@Name": "ExtRelations",
+            "@Type": "List"
+          },
+          {
+            "@Name": "n_samples",
+            "@Type": "Integer",
+            "#text": "4"
+          },
+          {
+            "@Name": "SeriesTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SamplesTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PubMedIds",
+            "@Type": "List",
+            "Item": {
+              "@Name": "int",
+              "@Type": "Integer",
+              "#text": "36044575"
+            }
+          },
+          {
+            "@Name": "Projects",
+            "@Type": "List"
+          },
+          {
+            "@Name": "FTPLink",
+            "@Type": "String",
+            "#text": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207275/"
+          },
+          {
+            "@Name": "GEO2R",
+            "@Type": "String",
+            "#text": "no"
+          }
+        ]
+      }
+    }
+  },
+  "200189432": {
+    "eSummaryResult": {
+      "DocSum": {
+        "Id": "200189432",
+        "Item": [
+          {
+            "@Name": "Accession",
+            "@Type": "String",
+            "#text": "GSE189432"
+          },
+          {
+            "@Name": "GDS",
+            "@Type": "String"
+          },
+          {
+            "@Name": "title",
+            "@Type": "String",
+            "#text": "Stroke induces disease-specific myeloid cells in the brain parenchyma and pia"
+          },
+          {
+            "@Name": "summary",
+            "@Type": "String",
+            "#text": "Inflammation triggers secondary brain damage after stroke. The meninges and other CNS border compartments serve as invasion sites for leukocyte influx into the brain thus promoting tissue damage after stroke. However, the post-ischemic immune response of border compartments compared to brain parenchyma remains poorly characterized . Here, we deeply characterize tissue-resident leukocytes in meninges and brain parenchyma by flow cytometry, histology, and single cell transcriptomics after experimental stroke and discover that leukocytes respond differently to stroke depending on their site of residence. We thereby discover a unique phenotype of myeloid cells exclusive to the brain after stroke. These stroke-associated myeloid cells partially resemble neurodegenerative disease-associated microglia. They are mainly of resident microglial origin, partially conserved in humans and exhibit a lipid-phagocytosing phenotype. Blocking markers specific for these cells partially ameliorates stroke outcome thus providing a potential therapeutic target. The injury-response of myeloid cells in the CNS is thus compartmentalized, adjusted to the type of injury and may represent a therapeutic target."
+          },
+          {
+            "@Name": "GPL",
+            "@Type": "String",
+            "#text": "24247"
+          },
+          {
+            "@Name": "GSE",
+            "@Type": "String",
+            "#text": "189432"
+          },
+          {
+            "@Name": "taxon",
+            "@Type": "String",
+            "#text": "Mus musculus"
+          },
+          {
+            "@Name": "entryType",
+            "@Type": "String",
+            "#text": "GSE"
+          },
+          {
+            "@Name": "gdsType",
+            "@Type": "String",
+            "#text": "Expression profiling by high throughput sequencing"
+          },
+          {
+            "@Name": "ptechType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "valType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SSInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "subsetInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PDAT",
+            "@Type": "String",
+            "#text": "2021/11/26"
+          },
+          {
+            "@Name": "suppFile",
+            "@Type": "String",
+            "#text": "CSV, MTX, TSV"
+          },
+          {
+            "@Name": "Samples",
+            "@Type": "List",
+            "Item": [
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5701745"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "scRNA-seq, pia mater leukocytes from C57BL/J mice 24h after transient middle cerebral artery occlusion"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5701742"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "scRNA-seq, brain parenchyma leukocytes from C57BL/J mice 24h after transient middle cerebral artery occlusion, rep1"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5701744"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "scRNA-seq, dura mater leukocytes from C57BL/J mice 24h after transient middle cerebral artery occlusion"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5701741"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "scRNA-seq, brain parenchyma from C57BL/J mice"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5701743"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "scRNA-seq, brain parenchyma leukocytes from C57BL/J mice 24h after transient middle cerebral artery occlusion, rep2"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5701740"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "scRNA-seq, dura mater leukocytes from C57BL/J mice"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5701739"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "scRNA-seq, brain parenchyma leukocytes from C57BL/J mice"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5701746"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "scRNA-seq, brain parenchyma leukocytes from C57BL/J mice 72h after transient middle cerebral artery occlusion"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@Name": "Relations",
+            "@Type": "List"
+          },
+          {
+            "@Name": "ExtRelations",
+            "@Type": "List",
+            "Item": {
+              "@Name": "ExtRelation",
+              "@Type": "Structure",
+              "Item": [
+                {
+                  "@Name": "RelationType",
+                  "@Type": "String",
+                  "#text": "SRA"
+                },
+                {
+                  "@Name": "TargetObject",
+                  "@Type": "String",
+                  "#text": "SRP347471"
+                },
+                {
+                  "@Name": "TargetFTPLink",
+                  "@Type": "String",
+                  "#text": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP347/SRP347471/"
+                }
+              ]
+            }
+          },
+          {
+            "@Name": "n_samples",
+            "@Type": "Integer",
+            "#text": "8"
+          },
+          {
+            "@Name": "SeriesTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SamplesTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PubMedIds",
+            "@Type": "List",
+            "Item": {
+              "@Name": "int",
+              "@Type": "Integer",
+              "#text": "35177618"
+            }
+          },
+          {
+            "@Name": "Projects",
+            "@Type": "List"
+          },
+          {
+            "@Name": "FTPLink",
+            "@Type": "String",
+            "#text": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189432/"
+          },
+          {
+            "@Name": "GEO2R",
+            "@Type": "String",
+            "#text": "no"
+          }
+        ]
+      }
+    }
+  },
+  "200167593": {
+    "eSummaryResult": {
+      "DocSum": {
+        "Id": "200167593",
+        "Item": [
+          {
+            "@Name": "Accession",
+            "@Type": "String",
+            "#text": "GSE167593"
+          },
+          {
+            "@Name": "GDS",
+            "@Type": "String"
+          },
+          {
+            "@Name": "title",
+            "@Type": "String",
+            "#text": "Single-Cell RNA-Seq reveals cellualr heterogeneity and gene expression difference between ischemic and hemorrhagic stroke brain"
+          },
+          {
+            "@Name": "summary",
+            "@Type": "String",
+            "#text": "Cluster analysis using nonlinear dimensionality reduction ([tSNE]) revealed the differences in global gene expression profiles of healthy and injured striatum, and identified clusters of cells with unique genetic signatures in both ischemic brain and hemorrhagic brain. Genes with p-value < 0.05 and fold change \u22651.5 were regarded as differentially expressed genes (DEGs). For astrocytes, 135 DEGs were downregulated in hemorrhagic stroke compared to ischemic stroke. The secondary profiling of astrocytic subtypes yielded 10 different subtypes with distinct functional cell identities. For microglia, tSNE map indicated the distribution and proportion of microglia/macrophage were very similar in in the ischemic and hemorrhagic stroke models. We obtained 75 DEGs in total (hemorrhagic stroke vs. ischemic stroke, 54 were upregulated, 21 were downregulated) ."
+          },
+          {
+            "@Name": "GPL",
+            "@Type": "String",
+            "#text": "24247"
+          },
+          {
+            "@Name": "GSE",
+            "@Type": "String",
+            "#text": "167593"
+          },
+          {
+            "@Name": "taxon",
+            "@Type": "String",
+            "#text": "Mus musculus"
+          },
+          {
+            "@Name": "entryType",
+            "@Type": "String",
+            "#text": "GSE"
+          },
+          {
+            "@Name": "gdsType",
+            "@Type": "String",
+            "#text": "Expression profiling by high throughput sequencing"
+          },
+          {
+            "@Name": "ptechType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "valType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SSInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "subsetInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PDAT",
+            "@Type": "String",
+            "#text": "2021/10/31"
+          },
+          {
+            "@Name": "suppFile",
+            "@Type": "String",
+            "#text": "MTX, TSV"
+          },
+          {
+            "@Name": "Samples",
+            "@Type": "List",
+            "Item": [
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5111160"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Hemorrhagic Stroke (HS)"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5111158"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "control"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5111159"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Ischemic Stroke (IS)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@Name": "Relations",
+            "@Type": "List"
+          },
+          {
+            "@Name": "ExtRelations",
+            "@Type": "List",
+            "Item": {
+              "@Name": "ExtRelation",
+              "@Type": "Structure",
+              "Item": [
+                {
+                  "@Name": "RelationType",
+                  "@Type": "String",
+                  "#text": "SRA"
+                },
+                {
+                  "@Name": "TargetObject",
+                  "@Type": "String",
+                  "#text": "SRP308347"
+                },
+                {
+                  "@Name": "TargetFTPLink",
+                  "@Type": "String",
+                  "#text": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP308/SRP308347/"
+                }
+              ]
+            }
+          },
+          {
+            "@Name": "n_samples",
+            "@Type": "Integer",
+            "#text": "3"
+          },
+          {
+            "@Name": "SeriesTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SamplesTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PubMedIds",
+            "@Type": "List",
+            "Item": {
+              "@Name": "int",
+              "@Type": "Integer",
+              "#text": "34836962"
+            }
+          },
+          {
+            "@Name": "Projects",
+            "@Type": "List"
+          },
+          {
+            "@Name": "FTPLink",
+            "@Type": "String",
+            "#text": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167593/"
+          },
+          {
+            "@Name": "GEO2R",
+            "@Type": "String",
+            "#text": "no"
+          }
+        ]
+      }
+    }
+  },
+  "200174574": {
+    "eSummaryResult": {
+      "DocSum": {
+        "Id": "200174574",
+        "Item": [
+          {
+            "@Name": "Accession",
+            "@Type": "String",
+            "#text": "GSE174574"
+          },
+          {
+            "@Name": "GDS",
+            "@Type": "String"
+          },
+          {
+            "@Name": "title",
+            "@Type": "String",
+            "#text": "Single-cell RNA-seq reveals the transcriptional landscape in ischemic stroke"
+          },
+          {
+            "@Name": "summary",
+            "@Type": "String",
+            "#text": "Here, we employed single-cell RNA sequencing (scRNA-seq) to comprehensively map the cell populations in the mouse model of MCAO (middle cerebral artery occlusion)."
+          },
+          {
+            "@Name": "GPL",
+            "@Type": "String",
+            "#text": "21103"
+          },
+          {
+            "@Name": "GSE",
+            "@Type": "String",
+            "#text": "174574"
+          },
+          {
+            "@Name": "taxon",
+            "@Type": "String",
+            "#text": "Mus musculus"
+          },
+          {
+            "@Name": "entryType",
+            "@Type": "String",
+            "#text": "GSE"
+          },
+          {
+            "@Name": "gdsType",
+            "@Type": "String",
+            "#text": "Expression profiling by high throughput sequencing"
+          },
+          {
+            "@Name": "ptechType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "valType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SSInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "subsetInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PDAT",
+            "@Type": "String",
+            "#text": "2021/09/24"
+          },
+          {
+            "@Name": "suppFile",
+            "@Type": "String",
+            "#text": "MTX, TSV"
+          },
+          {
+            "@Name": "Samples",
+            "@Type": "List",
+            "Item": [
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5319988"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Brain Sham rep2"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5319991"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Brain MCAO rep2"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5319989"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Brain Sham rep3"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5319990"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Brain MCAO rep1"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5319987"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Brain Sham rep1"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM5319992"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Brain MCAO rep3"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@Name": "Relations",
+            "@Type": "List"
+          },
+          {
+            "@Name": "ExtRelations",
+            "@Type": "List",
+            "Item": {
+              "@Name": "ExtRelation",
+              "@Type": "Structure",
+              "Item": [
+                {
+                  "@Name": "RelationType",
+                  "@Type": "String",
+                  "#text": "SRA"
+                },
+                {
+                  "@Name": "TargetObject",
+                  "@Type": "String",
+                  "#text": "SRP320164"
+                },
+                {
+                  "@Name": "TargetFTPLink",
+                  "@Type": "String",
+                  "#text": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP320/SRP320164/"
+                }
+              ]
+            }
+          },
+          {
+            "@Name": "n_samples",
+            "@Type": "Integer",
+            "#text": "6"
+          },
+          {
+            "@Name": "SeriesTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SamplesTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PubMedIds",
+            "@Type": "List",
+            "Item": {
+              "@Name": "int",
+              "@Type": "Integer",
+              "#text": "34496660"
+            }
+          },
+          {
+            "@Name": "Projects",
+            "@Type": "List"
+          },
+          {
+            "@Name": "FTPLink",
+            "@Type": "String",
+            "#text": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE174nnn/GSE174574/"
+          },
+          {
+            "@Name": "GEO2R",
+            "@Type": "String",
+            "#text": "no"
+          }
+        ]
+      }
+    }
+  },
+  "200126815": {
+    "eSummaryResult": {
+      "DocSum": {
+        "Id": "200126815",
+        "Item": [
+          {
+            "@Name": "Accession",
+            "@Type": "String",
+            "#text": "GSE126815"
+          },
+          {
+            "@Name": "GDS",
+            "@Type": "String"
+          },
+          {
+            "@Name": "title",
+            "@Type": "String",
+            "#text": "Antibody-neutralizable major early driver of Alzheimer\u2019s disease and vascular dementia"
+          },
+          {
+            "@Name": "summary",
+            "@Type": "String",
+            "#text": "Alzheimer\u2019s disease (AD) and vascular dementia (VaD) are the two most common forms of dementia, neither of which can be effectively treated. There is growing evidence on vascular contributions to cognitive impairment and dementia such as AD, but their pathogenic molecular links are not defined yet. Notably, neurofibrillary tangles made of hyperphosphorylated tau (P-tau) are a hallmark lesion of AD, but are not found in VaD. Although brain ischemia induces some tau changes and tau knockout reduces stroke-induced acute brain damage, little is known about the role of tau in mediating progression from vascular insufficiency to later development of VaD. Cis P-tau is a pre-tangle pathology in AD and an early driver of neurodegeneration resulting from brain injury, but its role in AD treatment or in VaD is unknown. Here we identify cis P-tau as an antibody-neutralizable major common early driver of AD and VaD. We show that cis P-tau elimination using cis antibody not only prevents, but also treats AD-like neurodegeneration and memory loss in a hTau mouse model of AD. Purified cis P-tau causes and spreads neurodegeneration with behavioral changes when injected into wild-type mouse brains, but is prevented by cis antibody. Surprisingly, we also find robust cis P-tau with no evidence of tau tangles in human VaD brains and a mouse model of chronic cerebral hypoperfusion that mimics key aspects of clinical VaD. Cis mAb treatment of hypoperfusive mice for 1 or 6 months blocks VaD-like neuropathological and functional outcomes. Single-cell transcriptomic profiling reveals that cerebral hypoperfusion induces numerous global changes in diverse brain cells including those of human AD brains. Remarkably, ~90% of these global changes are fully recovered with cis antibody, correlating with tau expression in cells. Thus, cis P-tau is a major common early driver of AD and VaD, and cis antibody has a potential role in the early detection, prevention and treatment of these devastating diseases."
+          },
+          {
+            "@Name": "GPL",
+            "@Type": "String",
+            "#text": "24247"
+          },
+          {
+            "@Name": "GSE",
+            "@Type": "String",
+            "#text": "126815"
+          },
+          {
+            "@Name": "taxon",
+            "@Type": "String",
+            "#text": "Mus musculus"
+          },
+          {
+            "@Name": "entryType",
+            "@Type": "String",
+            "#text": "GSE"
+          },
+          {
+            "@Name": "gdsType",
+            "@Type": "String",
+            "#text": "Expression profiling by high throughput sequencing"
+          },
+          {
+            "@Name": "ptechType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "valType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SSInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "subsetInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PDAT",
+            "@Type": "String",
+            "#text": "2021/02/10"
+          },
+          {
+            "@Name": "suppFile",
+            "@Type": "String",
+            "#text": "TSV, TXT"
+          },
+          {
+            "@Name": "Samples",
+            "@Type": "List",
+            "Item": [
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM3613870"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Sham-R1"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM3613876"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "BCAS-Cis Ptau mAb-R1"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM3613873"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "BCAS-IgG-R1"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM3613872"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Sham-R3"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM3613877"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "BCAS-Cis Ptau mAb-R2"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM3613874"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "BCAS-IgG-R2"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM3613871"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Sham-R2"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM3613875"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "BCAS-IgG-R3"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM3613878"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "BCAS-Cis Ptau mAb-R3"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@Name": "Relations",
+            "@Type": "List"
+          },
+          {
+            "@Name": "ExtRelations",
+            "@Type": "List",
+            "Item": {
+              "@Name": "ExtRelation",
+              "@Type": "Structure",
+              "Item": [
+                {
+                  "@Name": "RelationType",
+                  "@Type": "String",
+                  "#text": "SRA"
+                },
+                {
+                  "@Name": "TargetObject",
+                  "@Type": "String",
+                  "#text": "SRP185522"
+                },
+                {
+                  "@Name": "TargetFTPLink",
+                  "@Type": "String",
+                  "#text": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP185/SRP185522/"
+                }
+              ]
+            }
+          },
+          {
+            "@Name": "n_samples",
+            "@Type": "Integer",
+            "#text": "9"
+          },
+          {
+            "@Name": "SeriesTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SamplesTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PubMedIds",
+            "@Type": "List"
+          },
+          {
+            "@Name": "Projects",
+            "@Type": "List"
+          },
+          {
+            "@Name": "FTPLink",
+            "@Type": "String",
+            "#text": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126815/"
+          },
+          {
+            "@Name": "GEO2R",
+            "@Type": "String",
+            "#text": "no"
+          }
+        ]
+      }
+    }
+  },
+  "200150644": {
+    "eSummaryResult": {
+      "DocSum": {
+        "Id": "200150644",
+        "Item": [
+          {
+            "@Name": "Accession",
+            "@Type": "String",
+            "#text": "GSE150644"
+          },
+          {
+            "@Name": "GDS",
+            "@Type": "String"
+          },
+          {
+            "@Name": "title",
+            "@Type": "String",
+            "#text": "The stem cell pluripotency genes Klf4 and Oct4 regulate complex SMC phenotypic changes critical in late-stage atherosclerotic lesion pathogenesis"
+          },
+          {
+            "@Name": "summary",
+            "@Type": "String",
+            "#text": "Background Rupture or erosion of advanced atherosclerotic lesions with a resultant myocardial infarction or stroke are the leading worldwide cause of death. However, we have a very limited understanding of the identity, origin, and function of many cells that make up late stage atherosclerotic lesions, as well as the mechanisms by which they control plaque stability. Methods and Results Using RNAseq and ChIPseq of advanced atherosclerotic lesions from mice, we provide evidence SMC-specific Klf4- versus Oct4-knockout ApoE-/- mice showed virtually opposite genomic signatures and putative SMC Klf4 or Oct4 target genes play an important role regulating SMC phenotypic changes. Further, we conducted a comprehensive single-cell RNA-seq of advanced human carotid endarterectomy samples and compared these with scRNAseq from murine micro-dissected advanced atherosclerotic lesions\u00a0with SMC and endothelial lineage tracing to survey all plaque cell types and rigorously determine their origin. This analysis revealed remarkable similarity of transcriptomic clusters between mouse and human lesions and extensive plasticity of SMC- and EC-derived lesion cells. The latter included 7 distinct clusters of SMC- and EC-derived cells, most negative for traditional markers. In particular, SMC contributed to a Myh11-, Lgals3+ population with a chondrocyte-like gene signature that was markedly reduced with SMC-specific conditional knockout of Klf4. To study these cells and the mechanisms of their transition, we developed an innovative dual lineage tracing mouse that can uniquely label and genetically target Myh11+ SMC that subsequently activate Lgals3. We observed that SMC that activate Lgals3 comprise up to 2/3 of all SMC in advanced plaques. However, initial activation of Lgals3 in these cells does not represent conversion to a terminally differentiated state, but rather represents transition of these cells to a unique stem cell marker gene+, ECM-remodeling, \u201cpioneer\u201d cell phenotype that are the first to invest within lesions and subsequently give rise to at least 3 other SMC phenotypes within advanced lesions including Klf4-dependent osteogenic phenotypes likely to contribute to plaque calcification and plaque destabilization. Conclusions Taken together, these results provide evidence that SMC-derived cells within advanced mouse and human atherosclerotic lesions exhibit far greater phenotypic plasticity than generally believed, with Klf4 regulating transition to multiple phenotypes including Lgals3+ osteogenic cells likely to be detrimental for late stage atherosclerosis plaque pathogenesis."
+          },
+          {
+            "@Name": "GPL",
+            "@Type": "String",
+            "#text": "16417;13112"
+          },
+          {
+            "@Name": "GSE",
+            "@Type": "String",
+            "#text": "150644"
+          },
+          {
+            "@Name": "taxon",
+            "@Type": "String",
+            "#text": "Mus musculus"
+          },
+          {
+            "@Name": "entryType",
+            "@Type": "String",
+            "#text": "GSE"
+          },
+          {
+            "@Name": "gdsType",
+            "@Type": "String",
+            "#text": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing"
+          },
+          {
+            "@Name": "ptechType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "valType",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SSInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "subsetInfo",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PDAT",
+            "@Type": "String",
+            "#text": "2020/07/23"
+          },
+          {
+            "@Name": "suppFile",
+            "@Type": "String",
+            "#text": "NARROWPEAK, TXT"
+          },
+          {
+            "@Name": "Samples",
+            "@Type": "List",
+            "Item": [
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555588"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Klf4_KO_unsorted02"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555594"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "gfp_SMC_sorted_cells02"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555591"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "SMC_WT_eYFP_unsorted"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555602"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "endothelial_lineage_positive_cells"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555585"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Klf4_WT_sorted_SMCs01"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555586"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Klf4_WT_sorted_SMCs02"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555603"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Oct4-WT/WT"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555597"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "tdTomato_SMC_sorted_cells02"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555583"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Klf4_WT_unsorted01"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555600"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "aorta"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555604"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Oct4-KO/KO"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555601"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "endothelial_lineage_unsorted_cells"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555599"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "bca_unsorted_03"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555596"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "tdTomato_SMC_sorted_cells01"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555593"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "gfp_SMC_sorted_cells01"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555590"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Klf4_KO_sorted_SMCs02"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555587"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Klf4_KO_unsorted01"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555584"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Klf4_WT_unsorted02"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555589"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "Klf4_KO_sorted_SMCs01"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555598"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "bca_unsorted_01"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555595"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "gfp_SMC_sorted_cells03"
+                  }
+                ]
+              },
+              {
+                "@Name": "Sample",
+                "@Type": "Structure",
+                "Item": [
+                  {
+                    "@Name": "Accession",
+                    "@Type": "String",
+                    "#text": "GSM4555592"
+                  },
+                  {
+                    "@Name": "Title",
+                    "@Type": "String",
+                    "#text": "SMC_WT_eYFP_sorted"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "@Name": "Relations",
+            "@Type": "List"
+          },
+          {
+            "@Name": "ExtRelations",
+            "@Type": "List",
+            "Item": {
+              "@Name": "ExtRelation",
+              "@Type": "Structure",
+              "Item": [
+                {
+                  "@Name": "RelationType",
+                  "@Type": "String",
+                  "#text": "SRA"
+                },
+                {
+                  "@Name": "TargetObject",
+                  "@Type": "String",
+                  "#text": "SRP261818"
+                },
+                {
+                  "@Name": "TargetFTPLink",
+                  "@Type": "String",
+                  "#text": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP261/SRP261818/"
+                }
+              ]
+            }
+          },
+          {
+            "@Name": "n_samples",
+            "@Type": "Integer",
+            "#text": "22"
+          },
+          {
+            "@Name": "SeriesTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTitle",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PlatformTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "SamplesTaxa",
+            "@Type": "String"
+          },
+          {
+            "@Name": "PubMedIds",
+            "@Type": "List",
+            "Item": {
+              "@Name": "int",
+              "@Type": "Integer",
+              "#text": "32674599"
+            }
+          },
+          {
+            "@Name": "Projects",
+            "@Type": "List"
+          },
+          {
+            "@Name": "FTPLink",
+            "@Type": "String",
+            "#text": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE150nnn/GSE150644/"
+          },
+          {
+            "@Name": "GEO2R",
+            "@Type": "String",
+            "#text": "no"
+          }
+        ]
+      }
+    }
+  }
+}

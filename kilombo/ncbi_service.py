@@ -24,24 +24,32 @@ def get_study_summaries(study_id_list: []):
     responses = {}
     init = time.time()
 
-    with concurrent.futures.ProcessPoolExecutor() as executor:
-        for study_id, response in zip(study_id_list, executor.map(_fetch_study_items, study_id_list)):
-            log.debug(f"Get summary for study {study_id}...")
-            responses[study_id] = _retry_request_until_successful(_fetch_study_items, study_id)
+    for study_id in study_id_list:
+        log.debug(f"Get summary for study {study_id}...")
+        response = _fetch_study_summaries(study_id)
+        if response.status_code == 200:
+            responses[study_id] = xmltodict.parse(response.text)
+        else:
+            raise Exception("NCBI response not expected...")
 
     end = time.time()
 
-    log.info(f"Fetched details of {len(study_id_list)} in {end - init} time")
+    log.debug(f"Fetched details of {len(study_id_list)} studies in {round(end - init, 2)} seconds")
 
     return responses
 
 
-def _retry_request_until_successful(request, input):
-    response = request(input)
-    if response.status_code == 200:
-        return xmltodict.parse(response.text)
-    else:
-        _retry_request_until_successful(request, input)
+def get_study_accession_list(study_summaries: {}):
+    responses = {}
+    for study_summary in study_summaries:
+        responses[study_summary] = _extract_accessions_from_summaries(study_summaries[study_summary])
+    return responses
+
+
+def _extract_accessions_from_summaries(study_summary: dict):
+    summary_payload = study_summary["eSummaryResult"]["DocSum"]["Item"]
+    study_accession = next(filter(lambda item: item["@Name"] == "Accession", summary_payload))
+    return study_accession["#text"]
 
 
 def _fetch_study_list(keyword: str):
@@ -52,7 +60,7 @@ def _fetch_study_list(keyword: str):
     return response
 
 
-def _fetch_study_items(study_ncbi_id: int):
+def _fetch_study_summaries(study_ncbi_id: int):
     url = f"{NCBI_ESUMMARY_GDS_URL}&id={study_ncbi_id}"
     log.debug(f"[HTTP] Started ==> {url}")
     response = requests.get(url)
