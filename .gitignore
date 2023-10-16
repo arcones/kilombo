@@ -3,4 +3,5 @@
 
 ## Python caches
 kilombo/__pycache__
+kilombo/service/__pycache__
 tests/__pycache__
