@@ -1,7 +1,7 @@
 import json
 from unittest import TestCase
 
-from kilombo.ncbi_service import _extract_accessions_from_summaries
+from kilombo.service.ncbi import _extract_accessions_from_summaries
 
 
 class Test(TestCase):
