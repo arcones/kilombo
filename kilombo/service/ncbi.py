@@ -45,7 +45,9 @@ def get_study_summaries(study_id_list: []):
 def get_study_accession_list(study_summaries: {}):
     responses = {}
     for study_summary in study_summaries:
-        responses[study_summary] = _extract_accessions_from_summaries(study_summaries[study_summary])
+        response = _extract_accessions_from_summaries(study_summaries[study_summary])
+        if response.startswith("GSE"):
+            responses[study_summary] = response
     return responses
 
 
