@@ -1,22 +1,22 @@
-import concurrent.futures
 import logging
+import sys
 import time
+from multiprocessing import Pool
 
 import requests
 import xmltodict
 
-logging.basicConfig(level=logging.INFO)
-log = logging.getLogger(__name__)
-
-NCBI_API_KEY = "ed06bd0f3c27a605d87e51e94eecab115908"
+NCBI_API_KEYS = ["ed06bd0f3c27a605d87e51e94eecab115908", "b81884ffa1519f17cae15f6bd21ac8070108"]  ## GMAIL  ## UPM
 
 NCBI_EUTILS_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 NCBI_ESEARCH_GDS_URL = f"{NCBI_EUTILS_BASE_URL}/esearch.fcgi?db=gds&retmax=10000"
-NCBI_ESUMMARY_GDS_URL = f"{NCBI_EUTILS_BASE_URL}/esummary.fcgi?db=gds&api_key={NCBI_API_KEY}"
+NCBI_ESUMMARY_GDS_URL = f"{NCBI_EUTILS_BASE_URL}/esummary.fcgi?db=gds"
 
 
 def get_study_list(search_keyword: str):
+    logging.info(f"Get study list for keyword {search_keyword}...")
     ncbi_study_list_http_response = xmltodict.parse(_fetch_study_list(search_keyword).text)["eSearchResult"]
+    logging.info(f"Done get study list for keyword {search_keyword}")
     return ncbi_study_list_http_response["IdList"]["Id"]
 
 
@@ -24,17 +24,20 @@ def get_study_summaries(study_id_list: []):
     responses = {}
     init = time.time()
 
-    for study_id in study_id_list:
-        log.debug(f"Get summary for study {study_id}...")
-        response = _fetch_study_summaries(study_id)
+    for index, study_id in enumerate(study_id_list, start=0):
+        logging.info(f"Get summary for study {study_id}...")
+        api_key = NCBI_API_KEYS[0] if index % 2 == 0 else NCBI_API_KEYS[1]
+        response = _fetch_study_summaries(study_id, api_key)
         if response.status_code == 200:
             responses[study_id] = xmltodict.parse(response.text)
+            logging.info(f"Done get summary for study {study_id}")
         else:
-            raise Exception("NCBI response not expected...")
+            logging.error(f"Call to NCBI responded with a {response.status_code}")
+            raise Exception("NCBI response not expected... Shutting down")
 
     end = time.time()
 
-    log.debug(f"Fetched details of {len(study_id_list)} studies in {round(end - init, 2)} seconds")
+    logging.info(f"Fetched details of {len(study_id_list)} studies in {round(end - init, 2)} seconds")
 
     return responses
 
@@ -54,15 +57,15 @@ def _extract_accessions_from_summaries(study_summary: dict):
 
 def _fetch_study_list(keyword: str):
     url = f"{NCBI_ESEARCH_GDS_URL}&term={keyword}"
-    log.debug(f"[HTTP] Started ==> {url}")
+    logging.debug(f"[HTTP] Started ==> {url}")
     response = requests.get(url)
-    log.debug(f"[HTTP] Done ==> {url}")
+    logging.debug(f"[HTTP] Done ==> {url}")
     return response
 
 
-def _fetch_study_summaries(study_ncbi_id: int):
-    url = f"{NCBI_ESUMMARY_GDS_URL}&id={study_ncbi_id}"
-    log.debug(f"[HTTP] Started ==> {url}")
+def _fetch_study_summaries(study_ncbi_id: int, api_key: str):
+    url = f"{NCBI_ESUMMARY_GDS_URL}&id={study_ncbi_id}&api_key={api_key}"
+    logging.debug(f"[HTTP] Started ==> {url}")
     response = requests.get(url)
-    log.debug(f"[HTTP] Done ==> {url}")
+    logging.debug(f"[HTTP] Done ==> {url}")
     return response

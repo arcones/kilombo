@@ -20,9 +20,3 @@ Server will listen in port 8000. You can check the functionality with this examp
 ## Known Issues
 - NCBI queries returning more than 10000 results cannot be processed (`retstart` & `retmax` parameters iteration needed)
 - Long times to download summaries, e.g, 202 summaries in 100 seconds (aprox. 0.5s per study summary)
-
-## Ideas
-- Using if needed several API keys to speed up parallel summaries downloads
-- Use pandas
-- Advise user about timings of long searches
-- Timeouts

@@ -1,7 +1,7 @@
 import json
 from unittest import TestCase
 
-from kilombo.ncbi_service import _extract_accessions_from_summaries
+from kilombo.service.ncbi import _extract_accessions_from_summaries
 
 
 class Test(TestCase):
@@ -15,12 +15,14 @@ class Test(TestCase):
         assert accessions == ["GSE207275", "GSE189432", "GSE167593", "GSE174574", "GSE126815", "GSE150644"]
 
     def test__extract_accession_from_summaries_long_study_summaries(self):
-        with open("./fixtures/201_study_summaries.json") as file:
+        with open("./fixtures/202_study_summaries.json") as file:
             study_summaries = json.load(file)
         accessions = []
         for study_summary in study_summaries:
-            accessions.append(_extract_accessions_from_summaries(study_summaries[study_summary]))
-        assert len(accessions) == 202
+            study_accession = _extract_accessions_from_summaries(study_summaries[study_summary])
+            if study_accession is not None:
+                accessions.append(study_accession)
+        assert len(accessions) == 129
         assert accessions == [
             "GSE239626",
             "GSE181952",
@@ -151,77 +153,4 @@ class Test(TestCase):
             "GSE79014",
             "GSE77598",
             "GSE66763",
-            "GSM6500415",
-            "GSM6500414",
-            "GSM6500413",
-            "GSM6500412",
-            "GSM5278558",
-            "GSM5278557",
-            "GSM5278556",
-            "GSM5278555",
-            "GSM5278554",
-            "GSM5278553",
-            "GSM5278552",
-            "GSM5278551",
-            "GSM5278550",
-            "GSM5278549",
-            "GSM5278548",
-            "GSM5278547",
-            "GSM5278546",
-            "GSM5278545",
-            "GSM5278544",
-            "GSM5278543",
-            "GSM5278542",
-            "GSM5278541",
-            "GSM5278540",
-            "GSM5278539",
-            "GSM5278538",
-            "GSM5278537",
-            "GSM5278536",
-            "GSM5671100",
-            "GSM5670191",
-            "GSM5670041",
-            "GSM5669903",
-            "GSM5669794",
-            "GSM5669773",
-            "GSM5669766",
-            "GSM5669722",
-            "GSM5669714",
-            "GSM5669613",
-            "GSM5669598",
-            "GSM5669376",
-            "GSM5669375",
-            "GSM5669118",
-            "GSM5669022",
-            "GSM5668979",
-            "GSM5668862",
-            "GSM5668694",
-            "GSM5668540",
-            "GSM5668048",
-            "GSM5667955",
-            "GSM5667779",
-            "GSM5667593",
-            "GSM5667499",
-            "GSM5667493",
-            "GSM5667490",
-            "GSM5667448",
-            "GSM4970060",
-            "GSM4970059",
-            "GSM4970058",
-            "GSM4970057",
-            "GSM4970074",
-            "GSM4970073",
-            "GSM4970072",
-            "GSM4970071",
-            "GSM4970070",
-            "GSM1631680",
-            "GSM1631679",
-            "GSM1631678",
-            "GSM1631677",
-            "GSM1631676",
-            "GSM1631675",
-            "GSM1631674",
-            "GSM1631673",
-            "GSM1631672",
-            "GSM1631671",
         ]
