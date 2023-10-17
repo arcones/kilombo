@@ -1,9 +1,12 @@
+import asyncio
 import logging
 import time
 from concurrent.futures import ThreadPoolExecutor
 
+import aiohttp
 import requests
 import xmltodict
+
 
 NCBI_API_KEYS = ["ed06bd0f3c27a605d87e51e94eecab115908", "b81884ffa1519f17cae15f6bd21ac8070108"]
 
@@ -19,24 +22,20 @@ def get_study_list(search_keyword: str):
     return ncbi_study_list_http_response["IdList"]["Id"]
 
 
-def get_study_summaries(study_id_list: []):
+async def get_study_summaries(study_id_list: []):
     responses = {}
-    init = time.time()
 
-    for index, study_id in enumerate(study_id_list, start=0):
+    for index, study_id in enumerate(study_id_list):
         logging.info(f"Get summary for study {study_id}...")
         api_key = NCBI_API_KEYS[0] if index % 2 == 0 else NCBI_API_KEYS[1]
-        response = _fetch_study_summaries(study_id, api_key)
-        if response.status_code == 200:
-            responses[study_id] = xmltodict.parse(response.text)
-            logging.info(f"Done get summary for study {study_id}")
-        else:
-            logging.error(f"Call to NCBI responded with a {response.status_code}")
-            raise Exception("NCBI response not expected... Shutting down")
+        responses[study_id] = asyncio.create_task(_fetch_study_summaries_aiohttp(study_id, api_key))
 
-    end = time.time()
+    all_tasks = asyncio.all_tasks()
+    all_tasks_filtered = list(filter(lambda task: "_fetch_study_summaries_aiohttp" in f"${task.get_coro().cr_code}", all_tasks))
+    await asyncio.wait(all_tasks_filtered)
 
-    logging.info(f"Fetched details of {len(study_id_list)} studies in {round(end - init, 2)} seconds")
+    for response in responses:
+        responses[response] = responses[response].result()
 
     return responses
 
@@ -70,3 +69,17 @@ def _fetch_study_summaries(study_ncbi_id: int, api_key: str):
     response = requests.get(url)
     logging.debug(f"[HTTP] Done ==> {url}")
     return response
+
+
+async def _fetch_study_summaries_aiohttp(study_ncbi_id: int, api_key: str):
+    url = f"{NCBI_ESUMMARY_GDS_URL}&id={study_ncbi_id}&api_key={api_key}"
+    async with aiohttp.ClientSession() as session:
+        logging.debug(f"[HTTP] Started ==> {url}")
+        async with session.get(url) as response:
+            logging.debug(f"[HTTP] Done ==> {url}")
+            if response.status == 200:
+                logging.info(f"Done get summary for study {study_ncbi_id}")
+                return xmltodict.parse(await response.text())
+            else:
+                logging.error(f"Call to NCBI responded with a {response.status}")
+                raise Exception("NCBI response not expected... Shutting down")
