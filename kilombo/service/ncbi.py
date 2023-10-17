@@ -1,7 +1,6 @@
 import asyncio
 import logging
 import time
-from concurrent.futures import ThreadPoolExecutor
 
 import aiohttp
 import requests
@@ -73,13 +72,14 @@ def _fetch_study_summaries(study_ncbi_id: int, api_key: str):
 
 async def _fetch_study_summaries_aiohttp(study_ncbi_id: int, api_key: str):
     url = f"{NCBI_ESUMMARY_GDS_URL}&id={study_ncbi_id}&api_key={api_key}"
-    async with aiohttp.ClientSession() as session:
-        logging.debug(f"[HTTP] Started ==> {url}")
-        async with session.get(url) as response:
-            logging.debug(f"[HTTP] Done ==> {url}")
-            if response.status == 200:
-                logging.info(f"Done get summary for study {study_ncbi_id}")
-                return xmltodict.parse(await response.text())
-            else:
-                logging.error(f"Call to NCBI responded with a {response.status}")
-                raise Exception("NCBI response not expected... Shutting down")
+    while True:
+        async with aiohttp.ClientSession() as session:
+            logging.debug(f"[HTTP] Started ==> {url}")
+            async with session.get(url) as response:
+                logging.debug(f"[HTTP] Done ==> {url}")
+                if response.status == 200:
+                    logging.info(f"Done get summary for study {study_ncbi_id}")
+                    return xmltodict.parse(await response.text())
+                # else:
+                #     logging.error(f"Call to NCBI responded with a {response.status}")
+                #     raise Exception("NCBI response not expected... Shutting down")

@@ -22,7 +22,12 @@ async def add_sra_study_accessions(id_to_gse_dict: dict):
     await asyncio.wait(all_tasks_filtered)
 
     for response in responses:
-        responses[response] = {"geo_accession_id": responses[response][1], "sra_study_accession": responses[response][0].result()["study_accession"][0]}
+        try:
+            result = responses[response][0].result()["study_accession"][0]
+            responses[response] = {"geo_accession_id": responses[response][1], "sra_study_accession": result}
+        except AttributeError:
+            logging.error(f"Problemas con el {responses[response][1]} de donde no se puede sacar el SRP")
+            responses[response] = {"geo_accession_id": responses[response][1], "sra_study_accession": "Unknown"}
 
     return responses
 
