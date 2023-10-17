@@ -14,7 +14,7 @@ app = FastAPI()
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)-8s %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 
 
-@app.get("/query-NCBI-gds/")
+@app.get("/query-ncbi-gds")
 async def read_item(keyword: str):
     logging.info("Started the query-NCBI-gds data retrieval operation...")
     study_ncbi_id_list = get_study_list(keyword)
