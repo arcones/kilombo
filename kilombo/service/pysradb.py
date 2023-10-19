@@ -1,6 +1,7 @@
 import asyncio
 import logging
 
+import pandas
 from pysradb import SRAweb
 
 
@@ -12,7 +13,7 @@ async def add_sra_study_accessions(id_to_gse_dict: dict):
         logging.info(f"Extracting from geo accession id {geo_accession_id} for study {study_id} the SRP info...")
         srp_info = asyncio.create_task(_pysradb_gse_to_srp(geo_accession_id))
         tasks[study_id] = srp_info, geo_accession_id
-        logging.info(f"Done extracting from geo accession id {geo_accession_id} for study {study_id} the SRP info")
+        # logging.info(f"Done extracting from geo accession id {geo_accession_id} for study {study_id} the SRP info")
 
     all_tasks = asyncio.all_tasks()
     all_tasks_filtered = list(
@@ -32,4 +33,10 @@ async def add_sra_study_accessions(id_to_gse_dict: dict):
 
 
 async def _pysradb_gse_to_srp(geo_accession_id: str):
-    return SRAweb().gse_to_srp(geo_accession_id)  # https://pythonexamples.org/pandas-check-if-dataframe-is-empty/
+    logging.info(f"PROCESSING {geo_accession_id}")
+    result = SRAweb().gse_to_srp(geo_accession_id)  # https://pythonexamples.org/pandas-check-if-dataframe-is-empty/
+    if result.empty:
+        logging.info(f"EL DATAFRAME {geo_accession_id} ESTA EMPTY")
+        return None
+    logging.info(f"DONE {geo_accession_id}")
+    return result
