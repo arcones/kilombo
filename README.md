@@ -16,8 +16,3 @@ Server will listen in port 8000. You can check the functionality with this examp
 ```shell
     curl --location 'localhost:8000/query-NCBI-gds?keyword=stroke%20AND%20single%20cell%20rna%20seq%20AND%20musculus'
 ```
-
-metricas de timmings
-properties
-urls
-start=0

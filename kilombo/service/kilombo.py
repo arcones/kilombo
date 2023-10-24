@@ -11,6 +11,6 @@ async def query_ncbi_gds(keyword):
     study_ncbi_id_list = get_study_list(keyword)
     study_summaries = await get_study_summaries(study_ncbi_id_list)
     id_to_gse_dict = get_study_accession_list(study_summaries)
-    id_to_gse_and_srp_dict = await add_sra_study_accessions(id_to_gse_dict)
+    id_to_gse_and_srp_dict = add_sra_study_accessions(id_to_gse_dict)
     logging.info("Finished the query to gds database of NCBI")
     return id_to_gse_and_srp_dict
