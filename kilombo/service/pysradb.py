@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import time
 
 import pandas
 from pysradb import SRAweb
@@ -8,6 +9,8 @@ from pysradb import SRAweb
 async def add_sra_study_accessions(id_to_gse_dict: dict):
     tasks = {}
     responses = {}
+
+    init = time.time()
 
     for study_id, geo_accession_id in id_to_gse_dict.items():
         logging.info(f"Extracting from geo accession id {geo_accession_id} for study {study_id} the SRP info...")
@@ -28,6 +31,10 @@ async def add_sra_study_accessions(id_to_gse_dict: dict):
         except Exception as exception:
             logging.error(f"PYSRADB response not expected for study id {study_id} and geo accession {geo_accession_id}")
             logging.error(f"Exception {exception.__class__.__name__} with {exception.args}")
+
+    end = time.time()
+
+    logging.info(f"Done pysradb {round(end - init, 2)} seconds")
 
     return responses
 

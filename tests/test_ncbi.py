@@ -2,6 +2,7 @@ import json
 from unittest import TestCase
 
 from kilombo.service.ncbi import _extract_accessions_from_summaries
+from kilombo.service.ncbi import _extract_target_object_from_summaries
 from kilombo.service.ncbi import get_study_accession_list
 
 
@@ -366,3 +367,13 @@ def test_get_study_accession_list():
         "200239873": "GSE239873",
         "200239874": "GSE239874",
     }
+
+
+def test__extract_target_object_from_summaries_short_study_summaries():
+    with open("./fixtures/6_study_summaries.json") as file:
+        study_summaries = json.load(file)
+    target_objects = []
+    for study_summary in study_summaries:
+        target_objects.append(_extract_target_object_from_summaries(study_summaries[study_summary]))
+    assert len(target_objects) == 6
+    assert target_objects == ["SRP384377", "SRP347471", "SRP308347", "SRP320164", "SRP185522", "SRP261818"]

@@ -24,6 +24,8 @@ def get_study_list(search_keyword: str):
 async def get_study_summaries(study_id_list: []):
     responses = {}
 
+    init = time.time()
+
     for index, study_id in enumerate(study_id_list):
         logging.info(f"Get summary for study {study_id}...")
         api_key = NCBI_API_KEYS[0] if index % 2 == 0 else NCBI_API_KEYS[1]
@@ -35,6 +37,10 @@ async def get_study_summaries(study_id_list: []):
 
     for response in responses:
         responses[response] = responses[response].result()
+
+    end = time.time()
+
+    logging.info(f"Fetched details of {len(study_id_list)} studies in {round(end - init, 2)} seconds")
 
     return responses
 
@@ -52,6 +58,12 @@ def _extract_accessions_from_summaries(study_summary: dict):
     summary_payload = study_summary["eSummaryResult"]["DocSum"]["Item"]
     study_accession = next(filter(lambda item: item["@Name"] == "Accession", summary_payload))
     return study_accession["#text"]
+
+
+def _extract_target_object_from_summaries(study_summary: dict):
+    summary_payload = study_summary["eSummaryResult"]["DocSum"]["Item"]
+    study_relations = next(filter(lambda item: item["@Name"] == "Relations", summary_payload))
+    return study_relations["#text"]
 
 
 def _fetch_study_list(keyword: str):
