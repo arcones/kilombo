@@ -1,10 +1,13 @@
 import logging
+import time
 
 from pysradb import SRAweb
 
 
 def add_sra_study_accessions(id_to_gse_dict: dict):
     response = {}
+
+    init = time.time()
 
     for study_id, geo_accession_id in id_to_gse_dict.items():
         try:
@@ -15,4 +18,9 @@ def add_sra_study_accessions(id_to_gse_dict: dict):
         except Exception as exception:
             logging.error(f"PYSRADB response not expected for study id {study_id} and geo accession {geo_accession_id}")
             logging.error(f"Exception {exception.__class__.__name__} with {exception.args}")
+
+    end = time.time()
+
+    logging.debug(f"Transformed details of {len(id_to_gse_dict)} GSEs to SRPs in {round(end - init, 2)} seconds")
+
     return response
