@@ -43,25 +43,37 @@ async def get_study_summaries(study_id_list: []):
     return responses
 
 
-def get_study_accession_list(study_summaries: {}):
+def get_study_gse_and_srp_if_present(study_summaries: {}):
     responses = {}
     for study_summary in study_summaries:
-        response = _extract_accessions_from_summaries(study_summaries[study_summary])
-        if response.startswith("GSE"):
-            responses[study_summary] = response
+        responses[study_summary] = {}
+        gse_if_found = _extract_gse_from_summaries(study_summaries[study_summary])
+        if gse_if_found is not None:
+            responses[study_summary]["GSE"] = gse_if_found
+        srp_if_found = _extract_srp_from_summaries(study_summaries[study_summary])
+        if srp_if_found is not None:
+            responses[study_summary]["SRP"] = srp_if_found
+        if responses[study_summary] == {}:
+            responses.pop(study_summary)
     return responses
 
 
-def _extract_accessions_from_summaries(study_summary: dict):
+def _extract_gse_from_summaries(study_summary: dict):
     summary_payload = study_summary["eSummaryResult"]["DocSum"]["Item"]
     study_accession = next(filter(lambda item: item["@Name"] == "Accession", summary_payload))
-    return study_accession["#text"]
+    return study_accession["#text"] if study_accession["#text"].startswith("GSE") else None
 
 
-def _extract_target_object_from_summaries(study_summary: dict):
-    summary_payload = study_summary["eSummaryResult"]["DocSum"]["Item"]
-    study_relations = next(filter(lambda item: item["@Name"] == "Relations", summary_payload))
-    return study_relations["#text"]
+def _extract_srp_from_summaries(study_summary: dict):
+    try:
+        summary_payload = study_summary["eSummaryResult"]["DocSum"]["Item"]
+        study_relations = next(filter(lambda item: item["@Name"] == "ExtRelations", summary_payload))
+        items = study_relations["Item"]["Item"]
+        srp_if_present = [item for item in items if item["#text"].startswith("SRP")]
+        return srp_if_present[0]["#text"] if len(srp_if_present) == 1 else None
+    except KeyError:
+        logging.debug(f"Missing SRP for study id {study_summary['eSummaryResult']['DocSum']['Id']}, setting it to None by the moment")
+        return None
 
 
 def _fetch_study_list(keyword: str):
