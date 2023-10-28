@@ -1,16 +1,26 @@
 import logging
+import time
 
-from kilombo.service.ncbi import get_study_accession_list
-from kilombo.service.ncbi import get_study_list
-from kilombo.service.ncbi import get_study_summaries
-from kilombo.service.pysradb import add_sra_study_accessions
+from kilombo.model.study_hierarchy import StudyHierarchy
+from kilombo.service.external.ncbi import get_study_list
+from kilombo.service.external.ncbi import get_study_summaries
+from kilombo.service.external.ncbi import link_study_and_accessions
+from kilombo.service.external.pysradb import add_missing_srps
 
 
 async def query_ncbi_gds(keyword):
-    logging.info("Started the query to gds database of NCBI...")
-    study_ncbi_id_list = get_study_list(keyword)
-    study_summaries = await get_study_summaries(study_ncbi_id_list)
-    id_to_gse_dict = get_study_accession_list(study_summaries)
-    id_to_gse_and_srp_dict = add_sra_study_accessions(id_to_gse_dict)
-    logging.info("Finished the query to gds database of NCBI")
-    return id_to_gse_and_srp_dict
+    init = time.time()
+
+    logging.info(f"Started the process for keyword ==>  {keyword}")
+    study_hierarchy = StudyHierarchy()
+    get_study_list(keyword, study_hierarchy)
+    await get_study_summaries(study_hierarchy)
+    link_study_and_accessions(study_hierarchy)
+    add_missing_srps(study_hierarchy)
+    logging.info(f"Finished the process for input search ==>  {keyword}")
+
+    end = time.time()
+
+    logging.info(f"Fetched details of {study_hierarchy.count_total} studies in {round(end - init, 2)} seconds")
+
+    return study_hierarchy
