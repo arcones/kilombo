@@ -10,9 +10,9 @@ from kilombo.service import kilombo
 
 app = FastAPI()
 
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s %(levelname)-8s %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(filename)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 
 
-@app.get("/query-ncbi-gds")
-async def query_ncbi_gds(keyword: str):
+@app.get("/query-study-hierarchy")
+async def query_study_hierarchy(keyword: str):
     return await kilombo.query_ncbi_gds(keyword)

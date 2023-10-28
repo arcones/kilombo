@@ -6,6 +6,10 @@ import aiohttp
 import requests
 import xmltodict
 
+from kilombo.model.failed_study import FailedStudy
+from kilombo.model.failed_study_reason import FailedStudyReason
+from kilombo.model.study_hierarchy import StudyHierarchy
+
 NCBI_API_KEYS = ["ed06bd0f3c27a605d87e51e94eecab115908", "b81884ffa1519f17cae15f6bd21ac8070108"]
 
 NCBI_EUTILS_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
@@ -15,53 +19,59 @@ NCBI_ESUMMARY_GDS_URL = f"{NCBI_EUTILS_BASE_URL}/esummary.fcgi?db=gds"
 NCBI_RETRY_MAX = 100
 
 
-def get_study_list(search_keyword: str):
+def get_study_list(search_keyword: str, study_hierarchy: StudyHierarchy):
     logging.info(f"Get study list for keyword {search_keyword}...")
     ncbi_study_list_http_response = xmltodict.parse(_fetch_study_list(search_keyword).text)["eSearchResult"]
     logging.info(f"Done get study list for keyword {search_keyword}")
-    return ncbi_study_list_http_response["IdList"]["Id"]
+    study_ids = ncbi_study_list_http_response["IdList"]["Id"]
+    for study_id in study_ids:
+        study_hierarchy.add_pending_study(study_id)
 
 
-async def get_study_summaries(study_id_list: []):
-    responses = {}
-
+async def get_study_summaries(study_hierarchy: StudyHierarchy):
     init = time.time()
 
-    for index, study_id in enumerate(study_id_list):
-        logging.info(f"Get summary for study {study_id}...")
-        responses[study_id] = asyncio.create_task(_fetch_study_summaries(study_id))
+    for index, study_id in enumerate(study_hierarchy.pending):
+        study_hierarchy.pending[study_id] = asyncio.create_task(_fetch_study_summaries(study_id))
 
-    await asyncio.wait(responses.values())
+    await asyncio.wait(study_hierarchy.pending.values())
 
-    for response in responses:
-        responses[response] = responses[response].result()
+    for study_id in study_hierarchy.pending:
+        study_hierarchy.pending[study_id] = study_hierarchy.pending[study_id].result()
 
     end = time.time()
 
-    logging.debug(f"Fetched details of {len(study_id_list)} studies in {round(end - init, 2)} seconds")
-
-    return responses
+    logging.info(f"Fetched details of {len(study_hierarchy.pending)} studies in {round(end - init, 2)} seconds")
 
 
-def get_study_gse_and_srp_if_present(study_summaries: {}):
-    responses = {}
-    for study_summary in study_summaries:
-        responses[study_summary] = {}
-        gse_if_found = _extract_gse_from_summaries(study_summaries[study_summary])
-        if gse_if_found is not None:
-            responses[study_summary]["GSE"] = gse_if_found
-        srp_if_found = _extract_srp_from_summaries(study_summaries[study_summary])
-        if srp_if_found is not None:
-            responses[study_summary]["SRP"] = srp_if_found
-        if responses[study_summary] == {}:
-            responses.pop(study_summary)
-    return responses
+def link_study_and_accessions(study_hierarchy: StudyHierarchy):
+    for study_id in study_hierarchy.pending:
+        gsm_if_found = _extract_gsm_from_summaries(study_hierarchy.pending[study_id])
+        if gsm_if_found:
+            logging.warning(f"For {study_id}, as GSM was found")
+            study_hierarchy.move_study_to_failed(FailedStudy(study_id, FailedStudyReason.GSM_FOUND))
+        else:
+            gse_if_found = _extract_gse_from_summaries(study_hierarchy.pending[study_id])
+            if gse_if_found:
+                logging.info(f"For {study_id}, found GSE {gse_if_found}")
+                study_hierarchy.pending[study_id]["GSE"] = gse_if_found
+            srp_if_found = _extract_srp_from_summaries(study_hierarchy.pending[study_id])
+            if srp_if_found:
+                logging.info(f"For {study_id}, found SRP {srp_if_found}")
+                study_hierarchy.move_study_to_successful(study_id, srp_if_found)
+    study_hierarchy.reconcile()
 
 
 def _extract_gse_from_summaries(study_summary: dict):
     summary_payload = study_summary["eSummaryResult"]["DocSum"]["Item"]
     study_accession = next(filter(lambda item: item["@Name"] == "Accession", summary_payload))
     return study_accession["#text"] if study_accession["#text"].startswith("GSE") else None
+
+
+def _extract_gsm_from_summaries(study_summary: dict):
+    summary_payload = study_summary["eSummaryResult"]["DocSum"]["Item"]
+    study_accession = next(filter(lambda item: item["@Name"] == "Accession", summary_payload))
+    return study_accession["#text"] if study_accession["#text"].startswith("GSM") else None
 
 
 def _extract_srp_from_summaries(study_summary: dict):
@@ -78,26 +88,27 @@ def _extract_srp_from_summaries(study_summary: dict):
 
 def _fetch_study_list(keyword: str):
     url = f"{NCBI_ESEARCH_GDS_URL}&term={keyword}"
-    logging.debug(f"[HTTP] Started ==> {url}")
+    logging.debug(f"HTTP GET started ==> {url}")
     response = requests.get(url)
-    logging.debug(f"[HTTP] Done ==> {url}")
+    logging.debug(f"HTTP GET done ==> {url}")
     return response
 
 
-async def _fetch_study_summaries(study_ncbi_id: int):
-    unauthenticated_url = f"{NCBI_ESUMMARY_GDS_URL}&id={study_ncbi_id}"
+async def _fetch_study_summaries(study_id: int):
+    logging.debug(f"Started get summary for study ==> {study_id}")
+    unauthenticated_url = f"{NCBI_ESUMMARY_GDS_URL}&id={study_id}"
     retries_count = 1
     while retries_count < NCBI_RETRY_MAX:
         api_key = NCBI_API_KEYS[0] if retries_count % 2 == 0 else NCBI_API_KEYS[1]
         url = unauthenticated_url + f"&api_key={api_key}"
         async with aiohttp.ClientSession() as session:
-            logging.debug(f"[HTTP] Started ==> {url}")
+            logging.debug(f"HTTP GET started ==> {url}")
             async with session.get(url) as response:
-                logging.debug(f"[HTTP] Done ==> {url}")
+                logging.debug(f"HTTP GET Done ==> {url}")
                 if response.status == 200:
-                    logging.debug(f"Done get summary for study {study_ncbi_id} in retry {retries_count}")
+                    logging.debug(f"Done get summary in retry #{retries_count} ==> {study_id}")
                     return xmltodict.parse(await response.text())
                 else:
                     retries_count += 1
                     logging.debug(f"Get a {response.status} from {url}, retries count incremented to {retries_count}")
-    raise Exception(f"Unable to fetch {study_ncbi_id} in {NCBI_RETRY_MAX} attempts")
+    raise Exception(f"Unable to fetch {study_id} in {NCBI_RETRY_MAX} attempts")

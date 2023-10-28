@@ -3,29 +3,36 @@ import time
 
 from pysradb import SRAweb
 
+from kilombo.model.failed_study import FailedStudy
+from kilombo.model.failed_study_reason import FailedStudyReason
+from kilombo.model.study_hierarchy import StudyHierarchy
 
-def add_missing_srps(id_to_gse_and_srp_if_present: dict):
-    response = {}
 
+def add_missing_srps(study_hierarchy: StudyHierarchy):
     init = time.time()
-    missing_srps_count = 0
 
-    for study_id, gse_and_srp_if_present in id_to_gse_and_srp_if_present.items():
+    pending_items = study_hierarchy.pending.items()
+    pending_items_length = len(pending_items)
+
+    for study_id, gse_and_summary in pending_items:
         try:
-            if "SRP" not in gse_and_srp_if_present:
-                logging.info(f"Extracting from {gse_and_srp_if_present['GSE']} for study {study_id} the SRP...")
-                srp_info = SRAweb().gse_to_srp(gse_and_srp_if_present["GSE"])
-                missing_srps_count += 1
-                response[study_id] = {"GSE": gse_and_srp_if_present["GSE"], "SRP": srp_info["study_accession"][0]}
-                logging.info(f"Done extracting from {gse_and_srp_if_present['GSE']} for study {study_id} the SRP")
+            gse = gse_and_summary["GSE"]
+            srp = SRAweb().gse_to_srp(gse)["study_accession"][0]
+            study_hierarchy.move_study_to_successful(study_id, srp)
+            logging.debug(f"For {gse} the SRP is {srp}")
+        except AttributeError as attribute_error:
+            if attribute_error.name == "rename":
+                study_hierarchy.move_study_to_failed(FailedStudy(study_id, FailedStudyReason.PYSRADB_NONE_TYPE))
             else:
-                response[study_id] = {"GSE": gse_and_srp_if_present["GSE"], "SRP": gse_and_srp_if_present["SRP"]}
-        except Exception as exception:
-            logging.error(f"PYSRADB response not expected for study id {study_id} and {gse_and_srp_if_present['GSE']}")
-            logging.error(f"Exception {exception.__class__.__name__} with {exception.args}")
+                raise Exception(f"Unknown attribute error with name {attribute_error.name}")
+        except ValueError as value_error:
+            if value_error.args[0] == "All arrays must be of the same length":
+                study_hierarchy.move_study_to_failed(FailedStudy(study_id, FailedStudyReason.PYSRADB_ARRAY_LENGTH))
+            else:
+                raise Exception(f"Unknown value error with {value_error.args[0]}")
 
     end = time.time()
 
-    logging.debug(f"Transformed details of {missing_srps_count} GSEs to SRPs in {round(end - init, 2)} seconds")
+    logging.info(f"Transformed details of {pending_items_length} GSEs to SRPs in {round(end - init, 2)} seconds")
 
-    return response
+    study_hierarchy.reconcile()

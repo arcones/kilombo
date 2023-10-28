@@ -1,9 +1,10 @@
 import json
 from unittest import TestCase
 
+from kilombo.model.study_hierarchy import StudyHierarchy
 from kilombo.service.external.ncbi import _extract_gse_from_summaries
 from kilombo.service.external.ncbi import _extract_srp_from_summaries
-from kilombo.service.external.ncbi import get_study_gse_and_srp_if_present
+from kilombo.service.external.ncbi import link_study_and_accessions
 
 
 class Test(TestCase):
@@ -22,7 +23,7 @@ class Test(TestCase):
         gses = []
         for study_summary in study_summaries:
             gse = _extract_gse_from_summaries(study_summaries[study_summary])
-            if gse is not None:
+            if gse:
                 gses.append(gse)
         assert len(gses) == 129
         assert gses == [
@@ -160,138 +161,70 @@ class Test(TestCase):
     def test_get_study_gse_and_srp_if_present(self):
         with open("./fixtures/202_study_summaries.json") as file:
             study_summaries = json.load(file)
-        study_gse_and_srp_if_present = get_study_gse_and_srp_if_present(study_summaries)
-        assert len(study_gse_and_srp_if_present) == 129
-        assert study_gse_and_srp_if_present == {
-            "200066763": {"GSE": "GSE66763", "SRP": "SRP056049"},
-            "200077598": {"GSE": "GSE77598", "SRP": "SRP069333"},
-            "200079014": {"GSE": "GSE79014", "SRP": "SRP071311"},
-            "200084424": {"GSE": "GSE84424", "SRP": "SRP078531"},
-            "200084699": {"GSE": "GSE84699", "SRP": "SRP079236"},
-            "200091387": {"GSE": "GSE91387", "SRP": "SRP094853"},
-            "200094730": {"GSE": "GSE94730", "SRP": "SRP099127"},
-            "200104897": {"GSE": "GSE104897", "SRP": "SRP119856"},
-            "200104898": {"GSE": "GSE104898", "SRP": "SRP119855"},
-            "200104899": {"GSE": "GSE104899"},
-            "200110525": {"GSE": "GSE110525", "SRP": "SRP132774"},
-            "200113973": {"GSE": "GSE113973", "SRP": "SRP144462"},
-            "200114652": {"GSE": "GSE114652", "SRP": "SRP148460"},
-            "200121703": {"GSE": "GSE121703", "SRP": "SRP166658"},
-            "200122353": {"GSE": "GSE122353", "SRP": "SRP168313"},
-            "200125581": {"GSE": "GSE125581", "SRP": "SRP181863"},
-            "200127969": {"GSE": "GSE127969", "SRP": "SRP180896"},
-            "200128615": {"GSE": "GSE128615", "SRP": "SRP188970"},
-            "200129773": {"GSE": "GSE129773", "SRP": "SRP192495"},
-            "200129774": {"GSE": "GSE129774", "SRP": "SRP192496"},
-            "200130177": {"GSE": "GSE130177", "SRP": "SRP193448"},
-            "200130975": {"GSE": "GSE130975", "SRP": "SRP197361"},
-            "200133028": {"GSE": "GSE133028", "SRP": "SRP201915"},
-            "200134895": {"GSE": "GSE134895", "SRP": "SRP216410"},
-            "200138614": {"GSE": "GSE138614", "SRP": "SRP224883"},
-            "200139006": {"GSE": "GSE139006", "SRP": "SRP226024"},
-            "200141980": {"GSE": "GSE141980", "SRP": "SRP237508"},
-            "200142085": {"GSE": "GSE142085", "SRP": "SRP237763"},
-            "200142086": {"GSE": "GSE142086"},
-            "200143320": {"GSE": "GSE143320", "SRP": "SRP299727"},
-            "200144496": {"GSE": "GSE144496", "SRP": "SRP245908"},
-            "200144830": {"GSE": "GSE144830", "SRP": "SRP247484"},
-            "200145044": {"GSE": "GSE145044", "SRP": "SRP247976"},
-            "200146294": {"GSE": "GSE146294", "SRP": "SRP251583"},
-            "200156742": {"GSE": "GSE156742", "SRP": "SRP278607"},
-            "200156902": {"GSE": "GSE156902", "SRP": "SRP278818"},
-            "200159033": {"GSE": "GSE159033"},
-            "200159035": {"GSE": "GSE159035", "SRP": "SRP286403"},
-            "200161196": {"GSE": "GSE161196", "SRP": "SRP292009"},
-            "200161654": {"GSE": "GSE161654", "SRP": "SRP292941"},
-            "200163005": {"GSE": "GSE163005", "SRP": "SRP297575"},
-            "200163338": {"GSE": "GSE163338", "SRP": "SRP298165"},
-            "200166675": {"GSE": "GSE166675", "SRP": "SRP306114"},
-            "200168288": {"GSE": "GSE168288", "SRP": "SRP309366"},
-            "200168527": {"GSE": "GSE168527", "SRP": "SRP309931"},
-            "200169189": {"GSE": "GSE169189", "SRP": "SRP311303"},
-            "200169216": {"GSE": "GSE169216", "SRP": "SRP311342"},
-            "200172475": {"GSE": "GSE172475", "SRP": "SRP315686"},
-            "200172476": {"GSE": "GSE172476", "SRP": "SRP315687"},
-            "200173182": {"GSE": "GSE173182", "SRP": "SRP316022"},
-            "200173187": {"GSE": "GSE173187", "SRP": "SRP316025"},
-            "200173789": {"GSE": "GSE173789", "SRP": "SRP318646"},
-            "200173790": {"GSE": "GSE173790"},
-            "200174083": {"GSE": "GSE174083", "SRP": "SRP318929"},
-            "200177046": {"GSE": "GSE177046", "SRP": "SRP323730"},
-            "200178085": {"GSE": "GSE178085", "SRP": "SRP323918"},
-            "200180755": {"GSE": "GSE180755", "SRP": "SRP329681"},
-            "200180760": {"GSE": "GSE180760", "SRP": "SRP329687"},
-            "200180761": {"GSE": "GSE180761", "SRP": "SRP329685"},
-            "200181952": {"GSE": "GSE181952", "SRP": "SRP332229"},
-            "200184098": {"GSE": "GSE184098", "SRP": "SRP337022"},
-            "200186895": {"GSE": "GSE186895", "SRP": "SRP343946"},
-            "200187137": {"GSE": "GSE187137"},
-            "200187162": {"GSE": "GSE187162"},
-            "200187164": {"GSE": "GSE187164"},
-            "200187169": {"GSE": "GSE187169"},
-            "200187218": {"GSE": "GSE187218"},
-            "200187296": {"GSE": "GSE187296"},
-            "200187340": {"GSE": "GSE187340"},
-            "200187360": {"GSE": "GSE187360"},
-            "200187459": {"GSE": "GSE187459"},
-            "200187510": {"GSE": "GSE187510"},
-            "200187539": {"GSE": "GSE187539"},
-            "200187586": {"GSE": "GSE187586"},
-            "200187607": {"GSE": "GSE187607"},
-            "200187642": {"GSE": "GSE187642"},
-            "200187718": {"GSE": "GSE187718"},
-            "200187719": {"GSE": "GSE187719"},
-            "200187807": {"GSE": "GSE187807"},
-            "200187816": {"GSE": "GSE187816"},
-            "200187863": {"GSE": "GSE187863"},
-            "200187868": {"GSE": "GSE187868"},
-            "200187883": {"GSE": "GSE187883"},
-            "200187887": {"GSE": "GSE187887"},
-            "200187897": {"GSE": "GSE187897"},
-            "200187953": {"GSE": "GSE187953"},
-            "200188022": {"GSE": "GSE188022"},
-            "200188097": {"GSE": "GSE188097"},
-            "200188152": {"GSE": "GSE188152"},
-            "200188320": {"GSE": "GSE188320", "SRP": "SRP344813"},
-            "200190289": {"GSE": "GSE190289", "SRP": "SRP349436"},
-            "200193236": {"GSE": "GSE193236"},
-            "200193238": {"GSE": "GSE193238"},
-            "200193240": {"GSE": "GSE193240"},
-            "200193770": {"GSE": "GSE193770"},
-            "200195874": {"GSE": "GSE195874"},
-            "200201390": {"GSE": "GSE201390"},
-            "200201391": {"GSE": "GSE201391"},
-            "200203046": {"GSE": "GSE203046"},
-            "200204755": {"GSE": "GSE204755"},
-            "200204769": {"GSE": "GSE204769"},
-            "200205291": {"GSE": "GSE205291"},
-            "200207601": {"GSE": "GSE207601"},
-            "200209656": {"GSE": "GSE209656"},
-            "200210147": {"GSE": "GSE210147"},
-            "200210776": {"GSE": "GSE210776"},
-            "200211739": {"GSE": "GSE211739"},
-            "200212147": {"GSE": "GSE212147"},
-            "200215817": {"GSE": "GSE215817"},
-            "200215818": {"GSE": "GSE215818"},
-            "200215819": {"GSE": "GSE215819"},
-            "200216026": {"GSE": "GSE216026"},
-            "200216027": {"GSE": "GSE216027"},
-            "200216028": {"GSE": "GSE216028"},
-            "200217431": {"GSE": "GSE217431"},
-            "200221042": {"GSE": "GSE221042"},
-            "200223137": {"GSE": "GSE223137"},
-            "200224377": {"GSE": "GSE224377"},
-            "200225254": {"GSE": "GSE225254"},
-            "200225410": {"GSE": "GSE225410"},
-            "200227954": {"GSE": "GSE227954"},
-            "200229375": {"GSE": "GSE229375"},
-            "200231833": {"GSE": "GSE231833"},
-            "200233951": {"GSE": "GSE233951"},
-            "200236464": {"GSE": "GSE236464"},
-            "200236805": {"GSE": "GSE236805"},
-            "200239626": {"GSE": "GSE239626"},
-            "200239873": {"GSE": "GSE239873"},
-            "200239874": {"GSE": "GSE239874"},
+        study_hierarchy = StudyHierarchy(pending=study_summaries)
+        link_study_and_accessions(study_hierarchy)
+        assert len(study_hierarchy.successful) == 60
+        assert study_hierarchy.successful == {
+            "200066763": ["GSE66763", "SRP056049"],
+            "200077598": ["GSE77598", "SRP069333"],
+            "200079014": ["GSE79014", "SRP071311"],
+            "200084424": ["GSE84424", "SRP078531"],
+            "200084699": ["GSE84699", "SRP079236"],
+            "200091387": ["GSE91387", "SRP094853"],
+            "200094730": ["GSE94730", "SRP099127"],
+            "200104897": ["GSE104897", "SRP119856"],
+            "200104898": ["GSE104898", "SRP119855"],
+            "200110525": ["GSE110525", "SRP132774"],
+            "200113973": ["GSE113973", "SRP144462"],
+            "200114652": ["GSE114652", "SRP148460"],
+            "200121703": ["GSE121703", "SRP166658"],
+            "200122353": ["GSE122353", "SRP168313"],
+            "200125581": ["GSE125581", "SRP181863"],
+            "200127969": ["GSE127969", "SRP180896"],
+            "200128615": ["GSE128615", "SRP188970"],
+            "200129773": ["GSE129773", "SRP192495"],
+            "200129774": ["GSE129774", "SRP192496"],
+            "200130177": ["GSE130177", "SRP193448"],
+            "200130975": ["GSE130975", "SRP197361"],
+            "200133028": ["GSE133028", "SRP201915"],
+            "200134895": ["GSE134895", "SRP216410"],
+            "200138614": ["GSE138614", "SRP224883"],
+            "200139006": ["GSE139006", "SRP226024"],
+            "200141980": ["GSE141980", "SRP237508"],
+            "200142085": ["GSE142085", "SRP237763"],
+            "200143320": ["GSE143320", "SRP299727"],
+            "200144496": ["GSE144496", "SRP245908"],
+            "200144830": ["GSE144830", "SRP247484"],
+            "200145044": ["GSE145044", "SRP247976"],
+            "200146294": ["GSE146294", "SRP251583"],
+            "200156742": ["GSE156742", "SRP278607"],
+            "200156902": ["GSE156902", "SRP278818"],
+            "200159035": ["GSE159035", "SRP286403"],
+            "200161196": ["GSE161196", "SRP292009"],
+            "200161654": ["GSE161654", "SRP292941"],
+            "200163005": ["GSE163005", "SRP297575"],
+            "200163338": ["GSE163338", "SRP298165"],
+            "200166675": ["GSE166675", "SRP306114"],
+            "200168288": ["GSE168288", "SRP309366"],
+            "200168527": ["GSE168527", "SRP309931"],
+            "200169189": ["GSE169189", "SRP311303"],
+            "200169216": ["GSE169216", "SRP311342"],
+            "200172475": ["GSE172475", "SRP315686"],
+            "200172476": ["GSE172476", "SRP315687"],
+            "200173182": ["GSE173182", "SRP316022"],
+            "200173187": ["GSE173187", "SRP316025"],
+            "200173789": ["GSE173789", "SRP318646"],
+            "200174083": ["GSE174083", "SRP318929"],
+            "200177046": ["GSE177046", "SRP323730"],
+            "200178085": ["GSE178085", "SRP323918"],
+            "200180755": ["GSE180755", "SRP329681"],
+            "200180760": ["GSE180760", "SRP329687"],
+            "200180761": ["GSE180761", "SRP329685"],
+            "200181952": ["GSE181952", "SRP332229"],
+            "200184098": ["GSE184098", "SRP337022"],
+            "200186895": ["GSE186895", "SRP343946"],
+            "200188320": ["GSE188320", "SRP344813"],
+            "200190289": ["GSE190289", "SRP349436"],
         }
 
     def test__extract_srps_from_summaries_short_study_summaries(self):
@@ -300,7 +233,7 @@ class Test(TestCase):
         srps = []
         for study_summary in study_summaries:
             srps.append(_extract_srp_from_summaries(study_summaries[study_summary]))
-        assert len(list(filter(lambda srp: srp is not None, srps))) == 5
+        assert len(list(filter(lambda srp: srp, srps))) == 5
         assert srps == [None, "SRP347471", "SRP308347", "SRP320164", "SRP185522", "SRP261818"]
 
     def test__extract_srps_from_summaries_long_study_summaries(self):
@@ -309,7 +242,7 @@ class Test(TestCase):
         srps = []
         for study_summary in study_summaries:
             srps.append(_extract_srp_from_summaries(study_summaries[study_summary]))
-        assert len(list(filter(lambda srp: srp is not None, srps))) == 60
+        assert len(list(filter(lambda srp: srp, srps))) == 60
         assert srps == [
             None,
             "SRP332229",
