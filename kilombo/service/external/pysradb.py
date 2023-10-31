@@ -53,7 +53,7 @@ def add_srrs(study_hierarchy: StudyHierarchy):
             logging.debug(f"For {srp} the SRRs are {srrs}")
         except AttributeError as attribute_error:
             if attribute_error.name == "columns":
-                logging.debug(f"For {srp}, it seems there are none SRRs")  ## TODO check with Claudia. Example: id 200126815, GSE126815, SRP185522
+                logging.debug(f"For {srp}, it seems there are none SRRs")
             else:
                 raise Exception(f"Unknown attribute error with name {attribute_error.name}")
 
