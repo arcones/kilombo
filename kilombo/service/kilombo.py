@@ -6,10 +6,11 @@ from kilombo.service.external.ncbi import get_study_list
 from kilombo.service.external.ncbi import get_study_summaries
 from kilombo.service.external.ncbi import link_study_and_accessions
 from kilombo.service.external.pysradb import add_missing_srps
+from kilombo.service.external.pysradb import add_srrs
 
 
 async def query_ncbi_gds(keyword):
-    init = time.time()
+    init = time.perf_counter()
 
     logging.info(f"Started the process for keyword ==>  {keyword}")
     study_hierarchy = StudyHierarchy()
@@ -17,9 +18,10 @@ async def query_ncbi_gds(keyword):
     await get_study_summaries(study_hierarchy)
     link_study_and_accessions(study_hierarchy)
     add_missing_srps(study_hierarchy)
+    add_srrs(study_hierarchy)
     logging.info(f"Finished the process for input search ==>  {keyword}")
 
-    end = time.time()
+    end = time.perf_counter()
 
     logging.info(f"Fetched details of {study_hierarchy.count_total} studies in {round(end - init, 2)} seconds")
 
