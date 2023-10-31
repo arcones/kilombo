@@ -1,4 +1,7 @@
+import logging
+
 from kilombo.model.failed_study import FailedStudy
+from kilombo.model.failed_study_reason import FailedStudyReason
 
 
 class StudyHierarchy:
@@ -14,6 +17,9 @@ class StudyHierarchy:
 
     def add_pending_study(self, study_id):
         self.pending[study_id] = {}
+
+    def remove_study(self, study_id):
+        del self.pending[study_id]
 
     def move_study_to_failed(self, failed_study: FailedStudy):
         self.failed[failed_study.study_id] = self.pending[failed_study.study_id]
@@ -36,12 +42,24 @@ class StudyHierarchy:
         self.successful[study_id]["srrs"] = srrs
 
     def reconcile(self):
-        successful_study_ids_to_remove = [study_id[0] for study_id in self.successful.items() if study_id[0] in self.pending.keys()]
-        failed_study_ids_to_remove = [study_id[0] for study_id in self.failed.items() if study_id[0] in self.pending.keys()]
+        successful_study_ids_to_remove_from_pending = [study_id[0] for study_id in self.successful.items() if study_id[0] in self.pending.keys()]
+        failed_study_ids_to_remove_from_pending = [study_id[0] for study_id in self.failed.items() if study_id[0] in self.pending.keys()]
 
-        study_ids = successful_study_ids_to_remove + failed_study_ids_to_remove
+        study_ids = successful_study_ids_to_remove_from_pending + failed_study_ids_to_remove_from_pending
 
         for study_id in study_ids:
             self.pending.pop(study_id)
+
         if len(self.pending) == 0:
             del self.pending
+
+        self._clean_gsms()
+
+    def _clean_gsms(self):
+        gsms_to_remove = [study_id for study_id in self.failed.keys() if self.failed[study_id] == FailedStudyReason.GSM_FOUND]
+        if gsms_to_remove:
+            logging.debug(f"GSMs to remove: {gsms_to_remove}")
+            for study_id in gsms_to_remove:
+                self.failed.pop(study_id)
+                self.count_failed -= 1
+                self.count_total -= 1
