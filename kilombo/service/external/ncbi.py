@@ -29,7 +29,7 @@ def get_study_list(search_keyword: str, study_hierarchy: StudyHierarchy):
 
 
 async def get_study_summaries(study_hierarchy: StudyHierarchy):
-    init = time.time()
+    init = time.perf_counter()
 
     for index, study_id in enumerate(study_hierarchy.pending):
         study_hierarchy.pending[study_id] = asyncio.create_task(_fetch_study_summaries(study_id))
@@ -39,7 +39,7 @@ async def get_study_summaries(study_hierarchy: StudyHierarchy):
     for study_id in study_hierarchy.pending:
         study_hierarchy.pending[study_id] = study_hierarchy.pending[study_id].result()
 
-    end = time.time()
+    end = time.perf_counter()
 
     logging.info(f"Fetched details of {len(study_hierarchy.pending)} studies in {round(end - init, 2)} seconds")
 

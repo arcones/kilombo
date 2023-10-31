@@ -9,7 +9,7 @@ from kilombo.model.study_hierarchy import StudyHierarchy
 
 
 def add_missing_srps(study_hierarchy: StudyHierarchy):
-    init = time.time()
+    init = time.perf_counter()
 
     pending_items = study_hierarchy.pending.items()
     pending_items_length = len(pending_items)
@@ -31,8 +31,32 @@ def add_missing_srps(study_hierarchy: StudyHierarchy):
             else:
                 raise Exception(f"Unknown value error with {value_error.args[0]}")
 
-    end = time.time()
+    end = time.perf_counter()
 
     logging.info(f"Transformed details of {pending_items_length} GSEs to SRPs in {round(end - init, 2)} seconds")
 
     study_hierarchy.reconcile()
+
+
+def add_srrs(study_hierarchy: StudyHierarchy):
+    init = time.perf_counter()
+
+    successful_items = study_hierarchy.successful.items()
+    pending_items_length = len(successful_items)
+
+    for study_id, identifiers in successful_items:
+        try:
+            srp = identifiers["srp"]
+            data_frame = SRAweb().srp_to_srr(srp)
+            srrs = list(data_frame["run_accession"])
+            study_hierarchy.add_srrs(study_id, srrs)
+            logging.debug(f"For {srp} the SRRs are {srrs}")
+        except AttributeError as attribute_error:
+            if attribute_error.name == "columns":
+                logging.debug(f"For {srp}, it seems there are none SRRs")  ## TODO check with Claudia. Example: id 200126815, GSE126815, SRP185522
+            else:
+                raise Exception(f"Unknown attribute error with name {attribute_error.name}")
+
+    end = time.perf_counter()
+
+    logging.info(f"Transformed details of {pending_items_length} SRPS to SRRs in {round(end - init, 2)} seconds")
