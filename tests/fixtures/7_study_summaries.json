@@ -1,0 +1,541 @@
+{
+  "200247102": {
+    "uids": [
+      "200247102"
+    ],
+    "200247102": {
+      "uid": "200247102",
+      "accession": "GSE247102",
+      "gds": "",
+      "title": "Deletion of Slc9a1 in Cx3cr1+ cells stimulated microglial subcluster CREB1-BDNF signaling and oligodendrocyte crosstalk",
+      "summary": "Microglial Na/H exchanger-1 (NHE1) protein, encoded by Slc9a1, plays a role in white matter demyelination of ischemic stroke brains. In this study, we conducted single cell RNA-seq transcriptome analysis of corpus collosum and external capsule from wild-type (WT) and conditional Slc9a1 knockout (cKO) mice at 3 days post-stroke to study microglia-oligodendrocyte interactions.",
+      "gpl": "24247",
+      "gse": "247102",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2023/11/06",
+      "suppfile": "H5",
+      "samples": [
+        {
+          "accession": "GSM7883320",
+          "title": "WT IL, replicate 1, scRNAseq"
+        },
+        {
+          "accession": "GSM7883318",
+          "title": "WT CL, replicate 1, scRNAseq"
+        },
+        {
+          "accession": "GSM7883321",
+          "title": "WT IL, replicate 2, scRNAseq"
+        },
+        {
+          "accession": "GSM7883315",
+          "title": "KO CL, replicate 2, scRNAseq"
+        },
+        {
+          "accession": "GSM7883319",
+          "title": "WT CL, replicate 2, scRNAseq"
+        },
+        {
+          "accession": "GSM7883316",
+          "title": "KO IL, replicate 1, scRNAseq"
+        },
+        {
+          "accession": "GSM7883317",
+          "title": "KO IL, replicate 2, scRNAseq"
+        },
+        {
+          "accession": "GSM7883314",
+          "title": "KO CL, replicate 1, scRNAseq"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 8,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE247nnn/GSE247102/",
+      "geo2r": "no",
+      "bioproject": "PRJNA1036225"
+    }
+  },
+  "200207275": {
+    "uids": [
+      "200207275"
+    ],
+    "200207275": {
+      "uid": "200207275",
+      "accession": "GSE207275",
+      "gds": "",
+      "title": "JAG1-NOTCH4 mechanosensing drives atherosclerosis [single-cell RNA-seq]",
+      "summary": "Endothelial cell (EC) sensing of fluid shear stress regulates atherosclerosis, a disease of arteries that causes heart attack and stroke. Atherosclerosis preferentially develops at regions of arteries exposed to low oscillatory shear stress (LOSS), whereas high shear regions are protected. We show using inducible EC-specific genetic deletion in hyperlipidaemic mice that the Notch ligands JAG1 and DLL4 have opposing roles in atherosclerosis. While endothelial Jag1 promoted atherosclerosis at sites of LOSS, endothelial Dll4 was atheroprotective. Analysis of porcine and murine arteries and cultured human coronary artery EC exposed to experimental flow revealed that JAG1 and its receptor NOTCH4 are strongly upregulated by LOSS. Functional studies in cultured cells and in mice with EC-specific deletion of Jag1 show that JAG1-NOTCH4 signalling drives vascular dysfunction by repressing endothelial repair. These data demonstrate a fundamental role for JAG1-NOTCH4 in sensing LOSS during disease, and suggest therapeutic targeting of this pathway to treat atherosclerosis.",
+      "gpl": "19057",
+      "gse": "207275",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2022/09/06",
+      "suppfile": "TXT",
+      "samples": [
+        {
+          "accession": "GSM6283572",
+          "title": "SHE-BT-s003-1"
+        },
+        {
+          "accession": "GSM6283573",
+          "title": "SHE-BT-s004-1"
+        },
+        {
+          "accession": "GSM6283570",
+          "title": "SHE-BT-s001-1"
+        },
+        {
+          "accession": "GSM6283571",
+          "title": "SHE-BT-s002-1"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 4,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "36044575"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207275/",
+      "geo2r": "no",
+      "bioproject": "PRJNA854618"
+    }
+  },
+  "200189432": {
+    "uids": [
+      "200189432"
+    ],
+    "200189432": {
+      "uid": "200189432",
+      "accession": "GSE189432",
+      "gds": "",
+      "title": "Stroke induces disease-specific myeloid cells in the brain parenchyma and pia",
+      "summary": "Inflammation triggers secondary brain damage after stroke. The meninges and other CNS border compartments serve as invasion sites for leukocyte influx into the brain thus promoting tissue damage after stroke. However, the post-ischemic immune response of border compartments compared to brain parenchyma remains poorly characterized . Here, we deeply characterize tissue-resident leukocytes in meninges and brain parenchyma by flow cytometry, histology, and single cell transcriptomics after experimental stroke and discover that leukocytes respond differently to stroke depending on their site of residence. We thereby discover a unique phenotype of myeloid cells exclusive to the brain after stroke. These stroke-associated myeloid cells partially resemble neurodegenerative disease-associated microglia. They are mainly of resident microglial origin, partially conserved in humans and exhibit a lipid-phagocytosing phenotype. Blocking markers specific for these cells partially ameliorates stroke outcome thus providing a potential therapeutic target. The injury-response of myeloid cells in the CNS is thus compartmentalized, adjusted to the type of injury and may represent a therapeutic target.",
+      "gpl": "24247",
+      "gse": "189432",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2021/11/26",
+      "suppfile": "CSV, MTX, TSV",
+      "samples": [
+        {
+          "accession": "GSM5701745",
+          "title": "scRNA-seq, pia mater leukocytes from  C57BL/J mice 24h after transient middle cerebral artery occlusion"
+        },
+        {
+          "accession": "GSM5701739",
+          "title": "scRNA-seq, brain parenchyma leukocytes from C57BL/J mice"
+        },
+        {
+          "accession": "GSM5701742",
+          "title": "scRNA-seq, brain parenchyma leukocytes from C57BL/J mice 24h after transient middle cerebral artery occlusion, rep1"
+        },
+        {
+          "accession": "GSM5701743",
+          "title": "scRNA-seq, brain parenchyma leukocytes from C57BL/J mice 24h after transient middle cerebral artery occlusion, rep2"
+        },
+        {
+          "accession": "GSM5701744",
+          "title": "scRNA-seq, dura mater leukocytes from C57BL/J mice 24h after transient middle cerebral artery occlusion"
+        },
+        {
+          "accession": "GSM5701740",
+          "title": "scRNA-seq, dura mater leukocytes from C57BL/J mice"
+        },
+        {
+          "accession": "GSM5701741",
+          "title": "scRNA-seq, brain parenchyma from C57BL/J mice"
+        },
+        {
+          "accession": "GSM5701746",
+          "title": "scRNA-seq, brain parenchyma leukocytes from C57BL/J mice 72h after transient middle cerebral artery occlusion"
+        }
+      ],
+      "relations": [],
+      "extrelations": [
+        {
+          "relationtype": "SRA",
+          "targetobject": "SRP347471",
+          "targetftplink": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP347/SRP347471/"
+        }
+      ],
+      "n_samples": 8,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "35177618"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE189nnn/GSE189432/",
+      "geo2r": "no",
+      "bioproject": "PRJNA783004"
+    }
+  },
+  "200167593": {
+    "uids": [
+      "200167593"
+    ],
+    "200167593": {
+      "uid": "200167593",
+      "accession": "GSE167593",
+      "gds": "",
+      "title": "Single-Cell RNA-Seq reveals cellualr heterogeneity and gene expression difference between ischemic and hemorrhagic stroke brain",
+      "summary": "Cluster analysis using nonlinear dimensionality reduction ([tSNE]) revealed the differences in global gene expression profiles of healthy and injured striatum, and identified clusters of cells with unique genetic signatures in both ischemic brain and hemorrhagic brain. Genes with p-value < 0.05 and fold change \u22651.5 were regarded as differentially expressed genes (DEGs). For astrocytes, 135 DEGs were downregulated in hemorrhagic stroke compared to ischemic stroke. The secondary profiling of astrocytic subtypes yielded 10 different subtypes with distinct functional cell identities. For microglia, tSNE map indicated the distribution and proportion of microglia/macrophage were very similar in in the ischemic and hemorrhagic stroke models.  We obtained 75 DEGs in total (hemorrhagic stroke vs. ischemic stroke, 54 were upregulated, 21 were downregulated) .",
+      "gpl": "24247",
+      "gse": "167593",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2021/10/31",
+      "suppfile": "MTX, TSV",
+      "samples": [
+        {
+          "accession": "GSM5111160",
+          "title": "Hemorrhagic Stroke (HS)"
+        },
+        {
+          "accession": "GSM5111158",
+          "title": "control"
+        },
+        {
+          "accession": "GSM5111159",
+          "title": "Ischemic Stroke (IS)"
+        }
+      ],
+      "relations": [],
+      "extrelations": [
+        {
+          "relationtype": "SRA",
+          "targetobject": "SRP308347",
+          "targetftplink": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP308/SRP308347/"
+        }
+      ],
+      "n_samples": 3,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "34836962"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167593/",
+      "geo2r": "no",
+      "bioproject": "PRJNA705094"
+    }
+  },
+  "200174574": {
+    "uids": [
+      "200174574"
+    ],
+    "200174574": {
+      "uid": "200174574",
+      "accession": "GSE174574",
+      "gds": "",
+      "title": "Single-cell RNA-seq reveals the transcriptional landscape in ischemic stroke",
+      "summary": "Here, we employed single-cell RNA sequencing (scRNA-seq) to comprehensively map the cell populations in the mouse model of MCAO (middle cerebral artery occlusion).",
+      "gpl": "21103",
+      "gse": "174574",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2021/09/24",
+      "suppfile": "MTX, TSV",
+      "samples": [
+        {
+          "accession": "GSM5319988",
+          "title": "Brain Sham rep2"
+        },
+        {
+          "accession": "GSM5319991",
+          "title": "Brain MCAO rep2"
+        },
+        {
+          "accession": "GSM5319992",
+          "title": "Brain MCAO rep3"
+        },
+        {
+          "accession": "GSM5319989",
+          "title": "Brain Sham rep3"
+        },
+        {
+          "accession": "GSM5319990",
+          "title": "Brain MCAO rep1"
+        },
+        {
+          "accession": "GSM5319987",
+          "title": "Brain Sham rep1"
+        }
+      ],
+      "relations": [],
+      "extrelations": [
+        {
+          "relationtype": "SRA",
+          "targetobject": "SRP320164",
+          "targetftplink": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP320/SRP320164/"
+        }
+      ],
+      "n_samples": 6,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "34496660"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE174nnn/GSE174574/",
+      "geo2r": "no",
+      "bioproject": "PRJNA730565"
+    }
+  },
+  "200126815": {
+    "uids": [
+      "200126815"
+    ],
+    "200126815": {
+      "uid": "200126815",
+      "accession": "GSE126815",
+      "gds": "",
+      "title": "Antibody-neutralizable major early driver of Alzheimer\u2019s disease and vascular dementia",
+      "summary": "Alzheimer\u2019s disease (AD) and vascular dementia (VaD) are the two most common forms of dementia, neither of which can be effectively treated. There is growing evidence on vascular contributions to cognitive impairment and dementia such as AD, but their pathogenic molecular links are not defined yet. Notably, neurofibrillary tangles made of hyperphosphorylated tau (P-tau) are a hallmark lesion of AD, but are not found in VaD. Although brain ischemia induces some tau changes and tau knockout reduces stroke-induced acute brain damage, little is known about the role of tau in mediating progression from vascular insufficiency to later development of VaD. Cis P-tau is a pre-tangle pathology in AD and an early driver of neurodegeneration resulting from brain injury, but its role in AD treatment or in VaD is unknown. Here we identify cis P-tau as an antibody-neutralizable major common early driver of AD and VaD. We show that cis P-tau elimination using cis antibody not only prevents, but also treats AD-like neurodegeneration and memory loss in a hTau mouse model of AD. Purified cis P-tau causes and spreads neurodegeneration with behavioral changes when injected into wild-type mouse brains, but is prevented by cis antibody. Surprisingly, we also find robust cis P-tau with no evidence of tau tangles in human VaD brains and a mouse model of chronic cerebral hypoperfusion that mimics key aspects of clinical VaD. Cis mAb treatment of hypoperfusive mice for 1 or 6 months blocks VaD-like neuropathological and functional outcomes. Single-cell transcriptomic profiling reveals that cerebral hypoperfusion induces numerous global changes in diverse brain cells including those of human AD brains. Remarkably, ~90% of these global changes are fully recovered with cis antibody, correlating with tau expression in cells. Thus, cis P-tau is a major common early driver of AD and VaD, and cis antibody has a potential role in the early detection, prevention and treatment of these devastating diseases.",
+      "gpl": "24247",
+      "gse": "126815",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2021/02/10",
+      "suppfile": "TSV, TXT",
+      "samples": [
+        {
+          "accession": "GSM3613870",
+          "title": "Sham-R1"
+        },
+        {
+          "accession": "GSM3613875",
+          "title": "BCAS-IgG-R3"
+        },
+        {
+          "accession": "GSM3613876",
+          "title": "BCAS-Cis Ptau mAb-R1"
+        },
+        {
+          "accession": "GSM3613878",
+          "title": "BCAS-Cis Ptau mAb-R3"
+        },
+        {
+          "accession": "GSM3613873",
+          "title": "BCAS-IgG-R1"
+        },
+        {
+          "accession": "GSM3613872",
+          "title": "Sham-R3"
+        },
+        {
+          "accession": "GSM3613877",
+          "title": "BCAS-Cis Ptau mAb-R2"
+        },
+        {
+          "accession": "GSM3613874",
+          "title": "BCAS-IgG-R2"
+        },
+        {
+          "accession": "GSM3613871",
+          "title": "Sham-R2"
+        }
+      ],
+      "relations": [],
+      "extrelations": [
+        {
+          "relationtype": "SRA",
+          "targetobject": "SRP185522",
+          "targetftplink": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP185/SRP185522/"
+        }
+      ],
+      "n_samples": 9,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126815/",
+      "geo2r": "no",
+      "bioproject": "PRJNA521781"
+    }
+  },
+  "200150644": {
+    "uids": [
+      "200150644"
+    ],
+    "200150644": {
+      "uid": "200150644",
+      "accession": "GSE150644",
+      "gds": "",
+      "title": "The stem cell pluripotency genes Klf4 and Oct4 regulate complex SMC phenotypic changes critical in late-stage atherosclerotic lesion pathogenesis",
+      "summary": "Background Rupture or erosion of advanced atherosclerotic lesions with a resultant myocardial infarction or stroke are the leading worldwide cause of death. However, we have a very limited understanding of the identity, origin, and function of many cells that make up late stage atherosclerotic lesions, as well as the mechanisms by which they control plaque stability. Methods and Results Using RNAseq and ChIPseq of advanced atherosclerotic lesions from mice, we provide evidence SMC-specific Klf4- versus Oct4-knockout ApoE-/- mice showed virtually opposite genomic signatures and putative SMC Klf4 or Oct4 target genes play an important role regulating SMC phenotypic changes.  Further, we conducted a comprehensive single-cell RNA-seq of advanced human carotid endarterectomy samples and compared these with scRNAseq from murine micro-dissected advanced atherosclerotic lesions\u00a0with SMC and endothelial lineage tracing to survey all plaque cell types and rigorously determine their origin. This analysis revealed remarkable similarity of transcriptomic clusters between mouse and human lesions and extensive plasticity of SMC- and EC-derived lesion cells. The latter included 7 distinct clusters of SMC- and EC-derived cells, most negative for traditional markers. In particular, SMC contributed to a Myh11-, Lgals3+ population with a chondrocyte-like gene signature that was markedly reduced with SMC-specific conditional knockout of Klf4. To study these cells and the mechanisms of their transition, we developed an innovative dual lineage tracing mouse that can uniquely label and genetically target Myh11+ SMC that subsequently activate Lgals3. We observed that SMC that activate Lgals3 comprise up to 2/3 of all SMC in advanced plaques. However, initial activation of Lgals3 in these cells does not represent conversion to a terminally differentiated state, but rather represents transition of these cells to a unique stem cell marker gene+, ECM-remodeling, \u201cpioneer\u201d cell phenotype that are the first to invest within lesions and subsequently give rise to at least 3 other SMC phenotypes within advanced lesions including Klf4-dependent osteogenic phenotypes likely to contribute to plaque calcification and plaque destabilization. Conclusions Taken together, these results provide evidence that SMC-derived cells within advanced mouse and human atherosclerotic lesions exhibit far greater phenotypic plasticity than generally believed, with Klf4 regulating transition to multiple phenotypes including Lgals3+ osteogenic cells likely to be detrimental for late stage atherosclerosis plaque pathogenesis.",
+      "gpl": "16417;13112",
+      "gse": "150644",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2020/07/23",
+      "suppfile": "NARROWPEAK, TXT",
+      "samples": [
+        {
+          "accession": "GSM4555588",
+          "title": "Klf4_KO_unsorted02"
+        },
+        {
+          "accession": "GSM4555589",
+          "title": "Klf4_KO_sorted_SMCs01"
+        },
+        {
+          "accession": "GSM4555594",
+          "title": "gfp_SMC_sorted_cells02"
+        },
+        {
+          "accession": "GSM4555591",
+          "title": "SMC_WT_eYFP_unsorted"
+        },
+        {
+          "accession": "GSM4555602",
+          "title": "endothelial_lineage_positive_cells"
+        },
+        {
+          "accession": "GSM4555585",
+          "title": "Klf4_WT_sorted_SMCs01"
+        },
+        {
+          "accession": "GSM4555586",
+          "title": "Klf4_WT_sorted_SMCs02"
+        },
+        {
+          "accession": "GSM4555598",
+          "title": "bca_unsorted_01"
+        },
+        {
+          "accession": "GSM4555603",
+          "title": "Oct4-WT/WT"
+        },
+        {
+          "accession": "GSM4555597",
+          "title": "tdTomato_SMC_sorted_cells02"
+        },
+        {
+          "accession": "GSM4555583",
+          "title": "Klf4_WT_unsorted01"
+        },
+        {
+          "accession": "GSM4555600",
+          "title": "aorta"
+        },
+        {
+          "accession": "GSM4555604",
+          "title": "Oct4-KO/KO"
+        },
+        {
+          "accession": "GSM4555595",
+          "title": "gfp_SMC_sorted_cells03"
+        },
+        {
+          "accession": "GSM4555601",
+          "title": "endothelial_lineage_unsorted_cells"
+        },
+        {
+          "accession": "GSM4555592",
+          "title": "SMC_WT_eYFP_sorted"
+        },
+        {
+          "accession": "GSM4555599",
+          "title": "bca_unsorted_03"
+        },
+        {
+          "accession": "GSM4555596",
+          "title": "tdTomato_SMC_sorted_cells01"
+        },
+        {
+          "accession": "GSM4555593",
+          "title": "gfp_SMC_sorted_cells01"
+        },
+        {
+          "accession": "GSM4555590",
+          "title": "Klf4_KO_sorted_SMCs02"
+        },
+        {
+          "accession": "GSM4555587",
+          "title": "Klf4_KO_unsorted01"
+        },
+        {
+          "accession": "GSM4555584",
+          "title": "Klf4_WT_unsorted02"
+        }
+      ],
+      "relations": [],
+      "extrelations": [
+        {
+          "relationtype": "SRA",
+          "targetobject": "SRP261818",
+          "targetftplink": "ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByStudy/sra/SRP/SRP261/SRP261818/"
+        }
+      ],
+      "n_samples": 22,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "32674599"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE150nnn/GSE150644/",
+      "geo2r": "no",
+      "bioproject": "PRJNA633090"
+    }
+  }
+}

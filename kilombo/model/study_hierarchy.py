@@ -52,14 +52,3 @@ class StudyHierarchy:
 
         if len(self.pending) == 0:
             del self.pending
-
-        self._clean_gsms()
-
-    def _clean_gsms(self):
-        gsms_to_remove = [study_id for study_id in self.failed.keys() if self.failed[study_id] == FailedStudyReason.GSM_FOUND]
-        if gsms_to_remove:
-            logging.debug(f"GSMs to remove: {gsms_to_remove}")
-            for study_id in gsms_to_remove:
-                self.failed.pop(study_id)
-                self.count_failed -= 1
-                self.count_total -= 1
