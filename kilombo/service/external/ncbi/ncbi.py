@@ -1,5 +1,4 @@
 import asyncio
-import json
 import logging
 import time
 
@@ -16,10 +15,9 @@ class NCBI:
 
     def get_study_list(self, search_keyword: str):
         logging.info(f"Get study list for keyword {search_keyword}...")
-        ncbi_study_list_http_response = json.loads(self.ncbi_request.fetch_study_list(search_keyword).text)["esearchresult"]
+        idlist = self.ncbi_request.esearch_study_list(search_keyword)
         logging.info(f"Done get study list for keyword {search_keyword}")
-        items = ncbi_study_list_http_response["idlist"]
-        for item in items:
+        for item in idlist:
             if self._is_study(int(item)):
                 self.study_hierarchy.add_pending_study(item)
 
@@ -30,7 +28,7 @@ class NCBI:
         init = time.perf_counter()
 
         for index, study_id in enumerate(self.study_hierarchy.pending):
-            self.study_hierarchy.pending[study_id] = asyncio.create_task(self.ncbi_request.fetch_study_summaries(study_id))
+            self.study_hierarchy.pending[study_id] = asyncio.create_task(self.ncbi_request.esummary_study(study_id))
 
         await asyncio.wait(self.study_hierarchy.pending.values())
 

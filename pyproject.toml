@@ -15,6 +15,7 @@ pytest = "^7.4.3"
 pysradb = "^2.2.0"
 aiohttp = "^3.8.6"
 aiodns = "^3.1.1"
+requests-mock = "^1.11.0"
 
 [build-system]
 requires = ["poetry-core"]
