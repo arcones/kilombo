@@ -1,8 +1,7 @@
 import json
-from unittest import TestCase
 
 from kilombo.model.study_hierarchy import StudyHierarchy
-from kilombo.service.external.ncbi.ncbiextractor import NCBIExtractor
+from kilombo.service.external.ncbi.ncbi_extractor import NCBIExtractor
 
 
 def test_extract_gses_from_summaries_long_study_summaries():
