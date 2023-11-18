@@ -16,15 +16,21 @@ class NCBI:
         self.NCBI_ESEARCH_GDS_URL = f"{self.NCBI_EUTILS_BASE_URL}/esearch.fcgi?db=gds&retmode=json&&retmax=10000"
         self.NCBI_ESUMMARY_GDS_URL = f"{self.NCBI_EUTILS_BASE_URL}/esummary.fcgi?db=gds&retmode=json&"
         self.NCBI_RETRY_MAX = 100
+        self.NCBI_STUDY_ID_MIN = 200000000
+        self.NCBI_STUDY_ID_MAX = 299999999
         self.study_hierarchy = study_hierarchy
 
     def get_study_list(self, search_keyword: str):
         logging.info(f"Get study list for keyword {search_keyword}...")
         ncbi_study_list_http_response = json.loads(self._fetch_study_list(search_keyword).text)["esearchresult"]
         logging.info(f"Done get study list for keyword {search_keyword}")
-        study_ids = ncbi_study_list_http_response["idlist"]
-        for study_id in study_ids:
-            self.study_hierarchy.add_pending_study(study_id)
+        items = ncbi_study_list_http_response["idlist"]
+        for item in items:
+            if self._is_study(int(item)):
+                self.study_hierarchy.add_pending_study(item)
+
+    def _is_study(self, item: int) -> bool:
+        return self.NCBI_STUDY_ID_MIN <= item <= self.NCBI_STUDY_ID_MAX
 
     def _fetch_study_list(self, keyword: str):
         url = f"{self.NCBI_ESEARCH_GDS_URL}&term={keyword}"
