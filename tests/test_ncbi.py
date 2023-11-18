@@ -7,7 +7,7 @@ from kilombo.service.external.ncbi.ncbi import NCBI
 
 class NCBITest(TestCase):
     def test_get_study_gse_and_srp_if_present(self):
-        with open("./fixtures/202_study_summaries.json") as file:
+        with open("fixtures/132_study_summaries.json") as file:
             study_summaries = json.load(file)
         study_hierarchy = StudyHierarchy(pending=study_summaries)
         NCBI(study_hierarchy).link_study_and_accessions()
