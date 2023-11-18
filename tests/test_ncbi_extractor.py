@@ -1,12 +1,11 @@
 import json
-from unittest import TestCase
 
 from kilombo.model.study_hierarchy import StudyHierarchy
-from kilombo.service.external.ncbi.ncbiextractor import NCBIExtractor
+from kilombo.service.external.ncbi.ncbi_extractor import NCBIExtractor
 
 
 def test_extract_gses_from_summaries_long_study_summaries():
-    with open("fixtures/132_study_summaries.json") as file:
+    with open("fixtures/ncbi_extractor/132_study_summaries.json") as file:
         study_summaries = json.load(file)
     gses = []
     study_hierarchy = StudyHierarchy(study_summaries)
@@ -153,7 +152,7 @@ def test_extract_gses_from_summaries_long_study_summaries():
 
 
 def test_extract_gses_from_summaries_short_study_summaries():
-    with open("fixtures/7_study_summaries.json") as file:
+    with open("fixtures/ncbi_extractor/7_study_summaries.json") as file:
         study_summaries = json.load(file)
     gses = []
     study_hierarchy = StudyHierarchy(study_summaries)
@@ -166,7 +165,7 @@ def test_extract_gses_from_summaries_short_study_summaries():
 
 
 def test_extract_srps_from_summaries_short_study_summaries():
-    with open("fixtures/7_study_summaries.json") as file:
+    with open("fixtures/ncbi_extractor/7_study_summaries.json") as file:
         study_summaries = json.load(file)
     srps = []
     study_hierarchy = StudyHierarchy(study_summaries)
@@ -178,7 +177,7 @@ def test_extract_srps_from_summaries_short_study_summaries():
 
 
 def test_extract_srps_from_summaries_long_study_summaries():
-    with open("fixtures/132_study_summaries.json") as file:
+    with open("fixtures/ncbi_extractor/132_study_summaries.json") as file:
         study_summaries = json.load(file)
     srps = []
     study_hierarchy = StudyHierarchy(study_summaries)

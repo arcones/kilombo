@@ -1,0 +1,78 @@
+{
+  "header": {
+    "type": "esearch",
+    "version": "0.3"
+  },
+  "esearchresult": {
+    "count": "3",
+    "retmax": "3",
+    "retstart": "500",
+    "querykey": "1",
+    "webenv": "MCID_65590c86f55f700c7f1ada64",
+    "idlist": [
+      "500",
+      "501",
+      "502"
+    ],
+    "translationset": [
+      {
+        "from": "stroke",
+        "to": "\"stroke\"[MeSH Terms] OR stroke[All Fields]"
+      },
+      {
+        "from": "single cell rna seq",
+        "to": "single cell rna seq[All Fields]"
+      },
+      {
+        "from": "musculus",
+        "to": "\"muscles\"[MeSH Terms] OR \"Musculus\"[Organism] OR musculus[All Fields]"
+      }
+    ],
+    "translationstack": [
+      {
+        "term": "\"stroke\"[MeSH Terms]",
+        "field": "MeSH Terms",
+        "count": "654",
+        "explode": "Y"
+      },
+      {
+        "term": "stroke[All Fields]",
+        "field": "All Fields",
+        "count": "3720",
+        "explode": "N"
+      },
+      "OR",
+      "GROUP",
+      {
+        "term": "single cell rna seq[All Fields]",
+        "field": "All Fields",
+        "count": "50138",
+        "explode": "N"
+      },
+      "AND",
+      {
+        "term": "\"muscles\"[MeSH Terms]",
+        "field": "MeSH Terms",
+        "count": "200153",
+        "explode": "Y"
+      },
+      {
+        "term": "\"Musculus\"[Organism]",
+        "field": "Organism",
+        "count": "21",
+        "explode": "Y"
+      },
+      "OR",
+      {
+        "term": "musculus[All Fields]",
+        "field": "All Fields",
+        "count": "70118",
+        "explode": "N"
+      },
+      "OR",
+      "GROUP",
+      "AND"
+    ],
+    "querytranslation": "(\"stroke\"[MeSH Terms] OR stroke[All Fields]) AND single cell rna seq[All Fields] AND (\"muscles\"[MeSH Terms] OR \"Musculus\"[Organism] OR musculus[All Fields])"
+  }
+}
