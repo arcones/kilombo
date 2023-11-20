@@ -4,9 +4,12 @@ jobs:
   CI-CD:
     runs-on: ubuntu-latest
     steps:
-      - run: curl -sSL https://install.python-poetry.org | python3 -
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - run: poetry env use 3.10.12 && poetry env info
+      - uses: actions/checkout@v4
+      - name: Install poetry
+        run: pipx install poetry
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'poetry'
       - run: poetry install
       - run: cd tests && poetry run pytest
