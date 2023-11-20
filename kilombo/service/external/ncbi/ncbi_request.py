@@ -11,7 +11,7 @@ class NCBIRequest:
         self.NCBI_EUTILS_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
         self.NCBI_ESEARCH_GDS_URL = f"{self.NCBI_EUTILS_BASE_URL}/esearch.fcgi?db=gds&retmode=json"
         self.NCBI_ESUMMARY_GDS_URL = f"{self.NCBI_EUTILS_BASE_URL}/esummary.fcgi?db=gds&retmode=json"
-        self.NCBI_RETRY_MAX = 100
+        self.NCBI_RETRY_MAX = 10
         self.BATCH_SIZE = 500
 
     def esearch_study_list(self, keyword):
