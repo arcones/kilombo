@@ -14,9 +14,9 @@ class NCBI:
         self.ncbi_request = NCBIRequest()
 
     def get_study_list(self, search_keyword: str):
-        logging.info(f"Get study list for keyword {search_keyword}...")
+        logging.info(f'Get study list for keyword {search_keyword}...')
         idlist = self.ncbi_request.esearch_study_list(search_keyword)
-        logging.info(f"Done get study list for keyword {search_keyword}")
+        logging.info(f'Done get study list for keyword {search_keyword}')
         for item in idlist:
             if self._is_study(int(item)):
                 self.study_hierarchy.add_pending_study(item)
@@ -33,21 +33,21 @@ class NCBI:
         await asyncio.wait(self.study_hierarchy.pending.values())
 
         for study_id in self.study_hierarchy.pending:
-            self.study_hierarchy.pending[study_id] = self.study_hierarchy.pending[study_id].result()["result"]
+            self.study_hierarchy.pending[study_id] = self.study_hierarchy.pending[study_id].result()['result']
 
         end = time.perf_counter()
 
-        logging.info(f"Fetched details of {len(self.study_hierarchy.pending)} studies in {round(end - init, 2)} seconds")
+        logging.info(f'Fetched details of {len(self.study_hierarchy.pending)} studies in {round(end - init, 2)} seconds')
 
     def link_study_and_accessions(self):
         for study_id in self.study_hierarchy.pending:
             ncbi_extractor = NCBIExtractor(study_id, self.study_hierarchy)
             gse_if_found = ncbi_extractor.extract_gse_from_summaries()
             if gse_if_found:
-                logging.info(f"For {study_id}, found GSE {gse_if_found}")
-                self.study_hierarchy.pending[study_id]["GSE"] = gse_if_found
+                logging.info(f'For {study_id}, found GSE {gse_if_found}')
+                self.study_hierarchy.pending[study_id]['GSE'] = gse_if_found
             srp_if_found = ncbi_extractor.extract_srp_from_summaries()
             if srp_if_found:
-                logging.info(f"For {study_id}, found SRP {srp_if_found}")
+                logging.info(f'For {study_id}, found SRP {srp_if_found}')
                 self.study_hierarchy.move_study_to_successful(study_id, srp_if_found)
         self.study_hierarchy.reconcile()
