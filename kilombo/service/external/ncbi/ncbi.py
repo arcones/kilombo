@@ -2,12 +2,13 @@ import asyncio
 import logging
 import time
 
+from kilombo.model.study_hierarchy import StudyHierarchy
 from kilombo.service.external.ncbi.ncbi_extractor import NCBIExtractor
 from kilombo.service.external.ncbi.ncbi_request import NCBIRequest
 
 
 class NCBI:
-    def __init__(self, study_hierarchy):
+    def __init__(self, study_hierarchy: StudyHierarchy):
         self.NCBI_STUDY_ID_MIN = 200000000
         self.NCBI_STUDY_ID_MAX = 299999999
         self.study_hierarchy = study_hierarchy

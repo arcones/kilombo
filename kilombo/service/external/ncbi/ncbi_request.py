@@ -14,14 +14,14 @@ class NCBIRequest:
         self.NCBI_RETRY_MAX = 10
         self.BATCH_SIZE = 500
 
-    def esearch_study_list(self, keyword):
+    def esearch_study_list(self, keyword: str) -> list[int]:
         url = f'{self.NCBI_ESEARCH_GDS_URL}&term={keyword}'
         logging.debug(f'HTTP GET started ==> {url}')
         response = self._paginated_esearch(url)
         logging.debug(f'HTTP GET done ==> {url}')
         return response
 
-    def _paginated_esearch(self, url):
+    def _paginated_esearch(self, url: str) -> list[int]:
         retstart = 0
         paginated_url = url + f'&retmax={self.BATCH_SIZE}&usehistory=y'
         idlist = []
@@ -33,7 +33,7 @@ class NCBIRequest:
             else:
                 retstart += self.BATCH_SIZE
 
-    async def esummary_study(self, study_id: int):
+    async def esummary_study(self, study_id: int) -> str:
         logging.debug(f'Started get summary for study ==> {study_id}')
         unauthenticated_url = f'{self.NCBI_ESUMMARY_GDS_URL}&id={study_id}'
         retries_count = 1

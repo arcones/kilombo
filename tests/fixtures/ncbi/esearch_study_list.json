@@ -1,0 +1,87 @@
+{
+  "header": {
+    "type": "esearch",
+    "version": "0.3"
+  },
+  "esearchresult": {
+    "count": "12",
+    "retmax": "12",
+    "retstart": "0",
+    "querykey": "1",
+    "webenv": "MCID_655e65fb35724b4bfd41e895",
+    "idlist": [
+      "200247102",
+      "200207275",
+      "200189432",
+      "200167593",
+      "200174574",
+      "200126815",
+      "200150644",
+      "299999999",
+      "200000000",
+      "346878789",
+      "124487968",
+      "34899654655468789"
+    ],
+    "translationset": [
+      {
+        "from": "stroke",
+        "to": "\"stroke\"[MeSH Terms] OR stroke[All Fields]"
+      },
+      {
+        "from": "single cell rna seq",
+        "to": "single cell rna seq[All Fields]"
+      },
+      {
+        "from": "musculus",
+        "to": "\"muscles\"[MeSH Terms] OR \"Musculus\"[Organism] OR musculus[All Fields]"
+      }
+    ],
+    "translationstack": [
+      {
+        "term": "\"stroke\"[MeSH Terms]",
+        "field": "MeSH Terms",
+        "count": "654",
+        "explode": "Y"
+      },
+      {
+        "term": "stroke[All Fields]",
+        "field": "All Fields",
+        "count": "3721",
+        "explode": "N"
+      },
+      "OR",
+      "GROUP",
+      {
+        "term": "single cell rna seq[All Fields]",
+        "field": "All Fields",
+        "count": "50139",
+        "explode": "N"
+      },
+      "AND",
+      {
+        "term": "\"muscles\"[MeSH Terms]",
+        "field": "MeSH Terms",
+        "count": "200334",
+        "explode": "Y"
+      },
+      {
+        "term": "\"Musculus\"[Organism]",
+        "field": "Organism",
+        "count": "21",
+        "explode": "Y"
+      },
+      "OR",
+      {
+        "term": "musculus[All Fields]",
+        "field": "All Fields",
+        "count": "70192",
+        "explode": "N"
+      },
+      "OR",
+      "GROUP",
+      "AND"
+    ],
+    "querytranslation": "(\"stroke\"[MeSH Terms] OR stroke[All Fields]) AND single cell rna seq[All Fields] AND (\"muscles\"[MeSH Terms] OR \"Musculus\"[Organism] OR musculus[All Fields])"
+  }
+}

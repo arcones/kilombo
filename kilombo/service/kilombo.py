@@ -7,7 +7,7 @@ from kilombo.service.external.pysradb import add_missing_srps
 from kilombo.service.external.pysradb import add_srrs
 
 
-async def query_ncbi_gds(keyword):
+async def query_ncbi_gds(keyword: str):
     init = time.perf_counter()
 
     logging.info(f'Started the process for keyword ==>  {keyword}')

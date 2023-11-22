@@ -1,5 +1,8 @@
 ## IDE files
 .idea
+tests/.coverage
+
 
 ## Python caches
 **/__pycache__
+.pytest_cache

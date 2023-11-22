@@ -12,4 +12,4 @@ jobs:
           python-version: '3.10.12'
           cache: 'poetry'
       - run: poetry install
-      - run: cd tests && poetry run pytest
+      - run: cd tests && poetry run coverage run -m pytest

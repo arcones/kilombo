@@ -6,13 +6,13 @@ class NCBIExtractor:
         self.study_id = study_id
         self.study_hierarchy = study_hierarchy
 
-    def extract_gse_from_summaries(self):
+    def extract_gse_from_summaries(self) -> str:
         study_summary = self.study_hierarchy.pending[self.study_id]
         study_summary_payload = study_summary[study_summary['uids'][0]]
         if study_summary_payload['entrytype'] == 'GSE':
             return study_summary_payload['accession']
 
-    def extract_srp_from_summaries(self):
+    def extract_srp_from_summaries(self) -> str:
         study_summary = self.study_hierarchy.pending[self.study_id]
         study_summary_payload = study_summary[study_summary['uids'][0]]
         if study_summary_payload['extrelations']:
